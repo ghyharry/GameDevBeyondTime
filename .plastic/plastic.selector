@@ -1,0 +1,4 @@
+repository "Pair-Prototype@USC_CS526@cloud"
+  path "/"
+    br "/main"
+    co "/main"
