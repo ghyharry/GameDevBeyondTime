@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public GameObject restartUI;
     public GameObject winUI;
     public GameObject platform;
+    public GameObject platform2;
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
     public float speed = 10.0f;
@@ -84,6 +85,13 @@ public class Player : MonoBehaviour
         {
             //platform movement functionality
             platform.transform.position = new Vector3(75.16f, platform.transform.position.y - 6.0f, 0);
+
+            //Debug.Log("Button collision. ");
+        }
+        else if (collision.collider.tag == "ObstacleButton")
+        {
+            //platform movement functionality
+            platform2.SetActive(false);
 
             //Debug.Log("Button collision. ");
         }

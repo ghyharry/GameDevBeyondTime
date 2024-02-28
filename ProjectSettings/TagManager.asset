@@ -10,6 +10,8 @@ TagManager:
   - Obstacle
   - BounceBack
   - PlatformButton
+  - Bullet
+  - ObstacleButton
   layers:
   - Default
   - TransparentFX
