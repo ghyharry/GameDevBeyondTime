@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -7,34 +9,55 @@ public class Player : MonoBehaviour
     public GameManager gameManagerScript;
     public GameObject floor;
     public GameObject restartUI;
+    public GameObject platform2;
     public GameObject winUI;
     public GameObject platform;
-    public GameObject platform2;
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
+    public TMP_Text TimelineTrackerText;
     public float speed = 10.0f;
 
     float horizontalMovement;
     float verticalMovement;
-    
+
+    public float bounceBackWaitTime;
+
+    public float bounceBackForce = 10.0f;
+    private float bounceBackTimer = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         //gameManager = new GameManager();
         gameManagerScript = gameManager.GetComponent<GameManager>();
+        this.GetComponent<ShootColor>().enabled = false;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        horizontalMovement = Input.GetAxisRaw("Horizontal");
+        //Move the player only if bounceBackTimer is 0
+        if (bounceBackTimer > 0)
+        {
+            bounceBackTimer -= Time.deltaTime;
+            if (bounceBackTimer <= 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            horizontalMovement = 0.0f;
+        }
+        else
+        {
+            horizontalMovement = Input.GetAxisRaw("Horizontal");
+        }
+
         verticalMovement = Input.GetAxisRaw("Vertical");
         if (horizontalMovement > 0)
             transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalMovement);
         else
             Debug.Log("Cannot go back!");
         transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed);
-        
+
         TimeSwitch();
     }
 
@@ -47,11 +70,13 @@ public class Player : MonoBehaviour
             Debug.Log("Inside true. ");
             floor.GetComponent<SpriteRenderer>().material = currentFloorMaterial;
             Camera.main.backgroundColor = Color.blue;
+            TimelineTrackerText.SetText("Current Timeline");
         }
         else
         {
             floor.GetComponent<SpriteRenderer>().material = pastFloorMaterial;
             Camera.main.backgroundColor = Color.grey;
+            TimelineTrackerText.SetText("Past Timeline");
         }
 
     }
@@ -78,7 +103,15 @@ public class Player : MonoBehaviour
         else if (collision.collider.tag == "BounceBack")
         {
             //bounce back functionality
-            gameObject.transform.position = new Vector3(60.0f, -1.2f, 0);
+            //gameObject.transform.position = new Vector3(60.0f, -1.2f, 0);
+            //bounce player back with a force
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bounceBackForce * -1, 0.0f), ForceMode2D.Impulse);
+
+            //disable horizontal movement
+            bounceBackTimer = bounceBackWaitTime;
+            //set player color to grey
+            gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+
         }
 
         else if (collision.collider.tag == "PlatformButton")
@@ -88,6 +121,7 @@ public class Player : MonoBehaviour
 
             //Debug.Log("Button collision. ");
         }
+
         else if (collision.collider.tag == "ObstacleButton")
         {
             //platform movement functionality
@@ -95,5 +129,17 @@ public class Player : MonoBehaviour
 
             //Debug.Log("Button collision. ");
         }
+
+        else if(collision.collider.tag == "PickUp")
+        {
+            Debug.Log("Shooting enabled");
+            this.GetComponent<ShootColor>().enabled = true;
+            Destroy(collision.collider.gameObject);
+        }
     }
 }
+
+
+
+
+

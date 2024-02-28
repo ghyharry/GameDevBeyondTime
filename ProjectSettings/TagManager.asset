@@ -12,6 +12,7 @@ TagManager:
   - PlatformButton
   - Bullet
   - ObstacleButton
+  - PickUp
   layers:
   - Default
   - TransparentFX
