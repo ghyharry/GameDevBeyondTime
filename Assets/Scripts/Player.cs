@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
     public TMP_Text TimelineTrackerText;
+    public TMP_Text GunPickedText;
+
     public float speed = 10.0f;
 
     float horizontalMovement;
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
 
     public float bounceBackForce = 10.0f;
     private float bounceBackTimer = 0.0f;
+    float textTimer = 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -135,6 +138,15 @@ public class Player : MonoBehaviour
             Debug.Log("Shooting enabled");
             this.GetComponent<ShootColor>().enabled = true;
             Destroy(collision.collider.gameObject);
+            if (textTimer > 0)
+            {
+                GunPickedText.enabled = true;
+                textTimer -= Time.deltaTime;
+            }
+            else if (textTimer <= 0)
+            {
+                GunPickedText.enabled = false;
+            }
         }
     }
 }
