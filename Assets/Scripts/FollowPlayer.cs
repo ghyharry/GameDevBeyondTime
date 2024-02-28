@@ -11,6 +11,10 @@ public class FollowPlayer : MonoBehaviour
     {
 
         //Offset the camera behind the player's position.
-        transform.position = player.transform.position + offset;
+        if(player != null){
+            transform.position = player.transform.position + offset;
+        } else {
+            Debug.Log("Player not found");
+        }
     }
 }
