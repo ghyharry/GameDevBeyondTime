@@ -3,17 +3,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
-    public GameObject gameManager;
+    //public GameObject gameManager;
 
-    [HideInInspector]
-    public GameManager gameManagerScript;
+    //[HideInInspector]
+   // public GameManager gameManagerScript;
 
 
 
 
     void Start()
     {
-        gameManagerScript = gameManager.GetComponent<GameManager>();
+        //gameManagerScript = gameManager.GetComponent<GameManager>();
         // Destroy the bullet after 5 seconds
         Destroy(gameObject, 5f);
     }

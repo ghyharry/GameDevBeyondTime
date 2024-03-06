@@ -3505,8 +3505,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCurrentTimeLine: 1
+  playerPos: {x: 0, y: 0, z: 0}
   current: {fileID: 1775562488}
   past: {fileID: 401899867}
+  player: {fileID: 1058072165}
 --- !u!1001 &2516339817272353270
 PrefabInstance:
   m_ObjectHideFlags: 0

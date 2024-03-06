@@ -56,6 +56,6 @@ public class GameManager : MonoBehaviour
         pdata.x = playerPos.x;
         pdata.y = playerPos.y;
         string json = JsonUtility.ToJson(pdata);
-        RestClient.Post("https://fir-dbtest-eda91-default-rtdb.asia-southeast1.firebasedatabase.app/.json", pdata);
+        RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/.json", pdata);
     }
 }
