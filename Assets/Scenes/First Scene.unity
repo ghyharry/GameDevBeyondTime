@@ -298,7 +298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &43909343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 54.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &43909344
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You picked up a gun!
+  m_text: You picked up a gun.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1780,8 +1780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "w -> Jump\t\t\nd -> move forward\nc -> Switch timeline\nReach to goal
-    to win"
+  m_text: "w: \u2191\nd: \u2192\r\nc: Switch timeline!\r\nReach to goal to win"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2262,7 +2261,7 @@ Transform:
   m_GameObject: {fileID: 992797072}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 94.06728, y: -1.409106, z: 0.03684314}
+  m_LocalPosition: {x: 94.06728, y: -3.5, z: 0.03684314}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2350,7 +2349,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 933dcb09c0f69ea40aca4c3341d28ad1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4269,7 +4268,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3c00f1fc57969fb43946bab25893e909, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4533,8 +4532,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCurrentTimeLine: 1
+  playerPos: {x: 0, y: 0, z: 0}
   current: {fileID: 1775562488}
   past: {fileID: 401899867}
+  player: {fileID: 1058072165}
 --- !u!4 &721509876011955086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4040319152451401630, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
@@ -4564,6 +4565,10 @@ PrefabInstance:
       propertyPath: platform
       value: 
       objectReference: {fileID: 1094033397}
+    - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: jumpPower
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: restartUI
       value: 
@@ -4610,11 +4615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4584592353073497952, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -187.73
+      value: -184.1
       objectReference: {fileID: 0}
     - target: {fileID: 4584592353073497952, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.29
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4584592353073497952, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4825,6 +4830,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 774724571}
   - {fileID: 1775562489}
   - {fileID: 721318283}
   - {fileID: 1704443942}
@@ -4832,7 +4838,6 @@ SceneRoots:
   - {fileID: 522193237}
   - {fileID: 2143758518}
   - {fileID: 71743949}
-  - {fileID: 774724571}
   - {fileID: 401899868}
   - {fileID: 1094033401}
   - {fileID: 2516339817272353270}

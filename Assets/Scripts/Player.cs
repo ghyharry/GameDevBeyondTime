@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 
 public class Player : MonoBehaviour
 {
     public GameObject gameManager;
-    [HideInInspector]
+
     public GameManager gameManagerScript;
     public GameObject floor;
     public GameObject restartUI;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GunPickedText.enabled = false;
         //gameManager = new GameManager();
         gameManagerScript = gameManager.GetComponent<GameManager>();
         this.GetComponent<ShootColor>().enabled = false;
@@ -40,7 +43,7 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         //Move the player only if bounceBackTimer is 0
-        if (bounceBackTimer > 0)
+        /*if (bounceBackTimer > 0)
         {
             bounceBackTimer -= Time.deltaTime;
             if (bounceBackTimer <= 0)
@@ -48,11 +51,13 @@ public class Player : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             }
             horizontalMovement = 0.0f;
-        }
-        else
+        }*/
+        /*else
         {
             horizontalMovement = Input.GetAxisRaw("Horizontal");
-        }
+        }*/
+        horizontalMovement = Input.GetAxisRaw("Horizontal");
+
 
         verticalMovement = Input.GetAxisRaw("Vertical");
         if (horizontalMovement > 0)
@@ -88,7 +93,9 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone")
         {
-            //create a canvas for death screen
+            //Send death loc data to firebase db
+            //gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+
 
             //Destroy the player
             gameObject.SetActive(false);
@@ -113,7 +120,7 @@ public class Player : MonoBehaviour
             //disable horizontal movement
             bounceBackTimer = bounceBackWaitTime;
             //set player color to grey
-            gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            //gameObject.GetComponent<SpriteRenderer>().color = Color.black;
 
         }
 
@@ -135,19 +142,39 @@ public class Player : MonoBehaviour
 
         else if(collision.collider.tag == "PickUp")
         {
+            GunPickedText.enabled = true;
             Debug.Log("Shooting enabled");
             this.GetComponent<ShootColor>().enabled = true;
             Destroy(collision.collider.gameObject);
-            if (textTimer > 0)
+
+
+            StartCoroutine(PickUpTimer());
+
+            //textTimer -= Time.deltaTime;
+            Debug.Log("The timer for picked up text is : " + textTimer);
+
+           /* if (textTimer > 0)
             {
-                GunPickedText.enabled = true;
-                textTimer -= Time.deltaTime;
-            }
-            else if (textTimer <= 0)
+                
+            }*/
+            /*else if (textTimer <= 0)
             {
-                GunPickedText.enabled = false;
-            }
+                
+            }*/
         }
+    }
+
+    private IEnumerator PickUpTimer()
+    {
+        yield return new WaitForSeconds(3f);
+        GunPickedText.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        //Sending data to firebase for player loc death.
+        gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+
     }
 }
 

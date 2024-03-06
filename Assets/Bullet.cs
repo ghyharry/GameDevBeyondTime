@@ -3,9 +3,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
+    //public GameObject gameManager;
+
+    //[HideInInspector]
+   // public GameManager gameManagerScript;
+
+
+
 
     void Start()
     {
+        //gameManagerScript = gameManager.GetComponent<GameManager>();
         // Destroy the bullet after 5 seconds
         Destroy(gameObject, 5f);
     }
@@ -38,13 +46,16 @@ public class Bullet : MonoBehaviour
             
         }
 
-        
+
 
         // Dont destroy the bullet if it hits the player or gun
         // if (collision.gameObject.CompareTag("Player") )
         // {
         //     return;
         // }
+        Debug.Log("The player is going to be destroyed. ");
+        //gameManagerScript.DeathAnalytics(new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z));
+
         Destroy(gameObject);
 
         // Optional: Add more logic here if you want to exclude certain objects from causing destruction
