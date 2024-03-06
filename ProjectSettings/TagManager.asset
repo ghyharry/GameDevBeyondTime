@@ -10,6 +10,13 @@ TagManager:
   - Obstacle
   - BounceBack
   - PlatformButton
+<<<<<<< Updated upstream
+=======
+  - Bullet
+  - ObstacleButton
+  - PickUp
+  - PatrolPoint
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

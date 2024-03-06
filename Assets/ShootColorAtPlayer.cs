@@ -9,6 +9,9 @@ public class ShootColorAtPlayer : MonoBehaviour
 
     private float shootTimer; // Timer to track shooting intervals
 
+    //Radius of the enemy
+    public float radius = 5.0f;
+
     void Start()
     {
         shootTimer = shootInterval; // Initialize the shoot timer
@@ -18,7 +21,7 @@ public class ShootColorAtPlayer : MonoBehaviour
     {
         shootTimer -= Time.deltaTime; // Decrease the timer by the time passed since last frame
 
-        if (shootTimer <= 0 && player != null)
+        if (shootTimer <= 0 && player != null && Vector2.Distance(transform.position, player.position) < radius)
         {
             ShootAtPlayer(); // Shoot a bullet at the player
             shootTimer = shootInterval; // Reset the timer
