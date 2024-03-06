@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TeleportEnemyOnDamage : MonoBehaviour
 {
@@ -8,8 +9,15 @@ public class TeleportEnemyOnDamage : MonoBehaviour
     public Transform past;
     public GameObject currentMarker;
     public GameObject pastMarker;
+    public GameObject restartUI;
+    public TMP_Text timeFlipText;
     public bool isPast = false;
+    public int firstFlag = 1;
 
+    private void Start()
+    {
+        timeFlipText.enabled = false;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -20,8 +28,29 @@ public class TeleportEnemyOnDamage : MonoBehaviour
 
             //Destroy the bullet
             //Destroy(collision.gameObject);
+            if (firstFlag == 1)
+            {
+                StartCoroutine(Timer());
+            }
+            firstFlag += 1;
             MoveObjectToOtherTimeLine(gameObject);
+
         }
+
+
+
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+            restartUI.SetActive(true);
+        }
+        
+    }
+    private IEnumerator Timer()
+    {
+        timeFlipText.enabled = true;
+        yield return new WaitForSeconds(3f);
+        timeFlipText.enabled = false;
     }
 
     public void MoveObjectToOtherTimeLine(GameObject objectToMove)
@@ -34,6 +63,7 @@ public class TeleportEnemyOnDamage : MonoBehaviour
         isPast = !isPast;
         if (isPast)  //if enemy is in the past timeline.
         {
+            //timeFlipText.enabled = false;
             currentMarker.SetActive(true);
             pastMarker.SetActive(false);
         }

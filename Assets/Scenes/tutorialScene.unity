@@ -2139,7 +2139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -618.2, y: -219.2}
+  m_AnchoredPosition: {x: -630.1, y: -218.8}
   m_SizeDelta: {x: 20.5045, y: 12.4424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &935828614
@@ -2190,8 +2190,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 1.5
+  m_fontSizeBase: 1.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4630,9 +4630,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1775562489}
     - target: {fileID: -6754197254874682669, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
+      propertyPath: firstFlag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6754197254874682669, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
+      propertyPath: restartUI
+      value: 
+      objectReference: {fileID: 1383998040}
+    - target: {fileID: -6754197254874682669, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
       propertyPath: pastMarker
       value: 
       objectReference: {fileID: 1403924919}
+    - target: {fileID: -6754197254874682669, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
+      propertyPath: timeFlipText
+      value: 
+      objectReference: {fileID: 935828614}
     - target: {fileID: -6754197254874682669, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
       propertyPath: currentMarker
       value: 
