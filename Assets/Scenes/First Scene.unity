@@ -1780,8 +1780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "w -> Jump\t\t\nd -> move forward\nc -> Switch timeline\nReach to goal
-    to win"
+  m_text: "w: \u2191\r\nd: \u2192\r\nc: Switch timeline!\r\nReach to goal to win"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

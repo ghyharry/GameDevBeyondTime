@@ -7,7 +7,7 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public GameObject gameManager;
-    [HideInInspector]
+
     public GameManager gameManagerScript;
     public GameObject floor;
     public GameObject restartUI;

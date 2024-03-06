@@ -12,7 +12,7 @@ public class PlayerDeathLocData
 
 public class GameManager : MonoBehaviour
 {
-    
+
     public bool isCurrentTimeLine = true;
     public Vector3 playerPos;
 
