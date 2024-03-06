@@ -6,6 +6,8 @@ public class TeleportEnemyOnDamage : MonoBehaviour
 {
     public Transform current;
     public Transform past;
+    public GameObject currentMarker;
+    public GameObject pastMarker;
     public bool isPast = false;
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -30,6 +32,16 @@ public class TeleportEnemyOnDamage : MonoBehaviour
         // GameObject pastGameObject = FindTimeLineObject(altTimeLine);
         Transform pastGameObject = isPast ? current : past;
         isPast = !isPast;
+        if (isPast)  //if enemy is in the past timeline.
+        {
+            currentMarker.SetActive(true);
+            pastMarker.SetActive(false);
+        }
+        else    //if enemy is in the current timeline.
+        {
+            pastMarker.SetActive(true);
+            currentMarker.SetActive(false);
+        }
 
         // Check if the 'Past' GameObject was found
         if(pastGameObject != null)
