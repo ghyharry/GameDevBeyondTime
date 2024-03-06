@@ -30,21 +30,6 @@ public class Bullet : MonoBehaviour
         Debug.Log(" BulletCollision detected ");
         Debug.Log(collision.gameObject.name);
 
-        //If the bullet hits an obstacle and is same color, destroy the obstacle
-        if (collision.gameObject.CompareTag("Obstacle") )
-        {
-            //Print the color of the obstacle and the bullet
-            Debug.Log("XF" + collision.gameObject.GetComponent<SpriteRenderer>().color.ToString());
-            Debug.Log("XF" + GetComponent<SpriteRenderer>().color.ToString());
-
-            if (CheckSameColor(collision.gameObject.GetComponent<SpriteRenderer>().color, GetComponent<SpriteRenderer>().color))
-            {
-                // Destroy the obstacle
-                Debug.Log("XF Destroying obstacle");
-                Destroy(collision.gameObject);
-            }
-            
-        }
 
 
 
@@ -65,15 +50,5 @@ public class Bullet : MonoBehaviour
         //     Destroy(gameObject);
         // }
     }
-    
-    //Function to check if two colors are the same or very similar
-    public bool CheckSameColor(Color color1, Color color2)
-    {
-        //Check if the colors are within a certain range of each other
-        if (Mathf.Abs(color1.r - color2.r) < 0.1f && Mathf.Abs(color1.g - color2.g) < 0.1f && Mathf.Abs(color1.b - color2.b) < 0.1f)
-        {
-            return true;
-        }
-        return false;
-    }
+
 }
