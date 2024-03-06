@@ -4533,8 +4533,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCurrentTimeLine: 1
+  playerPos: {x: 0, y: 0, z: 0}
   current: {fileID: 1775562488}
   past: {fileID: 401899867}
+  player: {fileID: 1058072165}
 --- !u!4 &721509876011955086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4040319152451401630, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
@@ -4564,6 +4566,10 @@ PrefabInstance:
       propertyPath: platform
       value: 
       objectReference: {fileID: 1094033397}
+    - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: jumpPower
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: restartUI
       value: 

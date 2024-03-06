@@ -1,21 +1,29 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
+using Proyecto26;
+
+[System.Serializable]
+public class PlayerDeathLocData
+{
+    public float x;
+    public float y;
+}
 
 public class GameManager : MonoBehaviour
 {
     
     public bool isCurrentTimeLine = true;
+    public Vector3 playerPos;
+
     public GameObject current;
     public GameObject past;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    public GameObject player;
 
     // Update is called once per frame
     void Update()
     {
+        playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         TimeSwitch();
     }
 
@@ -40,5 +48,14 @@ public class GameManager : MonoBehaviour
             //isCurrentTimeLine = !isCurrentTimeLine;
             Debug.Log("the bool variable is : " + isCurrentTimeLine);
         }
+    }
+
+    public void DeathAnalytics(Vector3 playerPos)
+    {
+        PlayerDeathLocData pdata = new PlayerDeathLocData();
+        pdata.x = playerPos.x;
+        pdata.y = playerPos.y;
+        string json = JsonUtility.ToJson(pdata);
+        RestClient.Post("https://fir-dbtest-eda91-default-rtdb.asia-southeast1.firebasedatabase.app/.json", pdata);
     }
 }

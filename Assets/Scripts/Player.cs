@@ -90,6 +90,11 @@ public class Player : MonoBehaviour
         {
             //create a canvas for death screen
 
+
+            //Send death loc data to firebase db
+            //gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+
+
             //Destroy the player
             gameObject.SetActive(false);
             restartUI.SetActive(true);
@@ -148,6 +153,12 @@ public class Player : MonoBehaviour
                 GunPickedText.enabled = false;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+
     }
 }
 
