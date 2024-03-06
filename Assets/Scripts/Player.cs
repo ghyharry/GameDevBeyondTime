@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 
 public class Player : MonoBehaviour
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GunPickedText.enabled = false;
         //gameManager = new GameManager();
         gameManagerScript = gameManager.GetComponent<GameManager>();
         this.GetComponent<ShootColor>().enabled = false;
@@ -88,9 +91,6 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone")
         {
-            //create a canvas for death screen
-
-
             //Send death loc data to firebase db
             //gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
 
@@ -140,23 +140,37 @@ public class Player : MonoBehaviour
 
         else if(collision.collider.tag == "PickUp")
         {
+            GunPickedText.enabled = true;
             Debug.Log("Shooting enabled");
             this.GetComponent<ShootColor>().enabled = true;
             Destroy(collision.collider.gameObject);
-            if (textTimer > 0)
+
+
+            StartCoroutine(PickUpTimer());
+
+            //textTimer -= Time.deltaTime;
+            Debug.Log("The timer for picked up text is : " + textTimer);
+
+           /* if (textTimer > 0)
             {
-                GunPickedText.enabled = true;
-                textTimer -= Time.deltaTime;
-            }
-            else if (textTimer <= 0)
+                
+            }*/
+            /*else if (textTimer <= 0)
             {
-                GunPickedText.enabled = false;
-            }
+                
+            }*/
         }
+    }
+
+    private IEnumerator PickUpTimer()
+    {
+        yield return new WaitForSeconds(3f);
+        GunPickedText.enabled = false;
     }
 
     private void OnDestroy()
     {
+        //Sending data to firebase for player loc death.
         gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
 
     }
