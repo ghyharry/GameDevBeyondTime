@@ -5164,6 +5164,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1220084941469141424, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220084941469141424, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220084941469141424, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220084941469141424, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}

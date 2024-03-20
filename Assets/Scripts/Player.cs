@@ -18,9 +18,10 @@ public class Player : MonoBehaviour
     public Material pastFloorMaterial;
     public TMP_Text TimelineTrackerText;
     public TMP_Text GunPickedText;
+    private Rigidbody2D rb;
 
     public float speed = 10.0f;
-
+    public float cspeed =0.0f;
     float horizontalMovement;
     float verticalMovement;
 
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
         //gameManager = new GameManager();
         gameManagerScript = gameManager.GetComponent<GameManager>();
         this.GetComponent<ShootColor>().enabled = false;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -60,10 +62,18 @@ public class Player : MonoBehaviour
 
 
         verticalMovement = Input.GetAxisRaw("Vertical");
-        if (horizontalMovement > 0)
-            transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalMovement);
-        else
-            Debug.Log("Cannot go back!");
+        if (horizontalMovement > 0){
+            cspeed= speed  * horizontalMovement;
+            transform.Translate(cspeed * Time.deltaTime,0.0f,0.0f);
+        }
+        else{
+            Debug.Log(cspeed);
+            if (cspeed>0.0f) {
+                cspeed-=0.1f;
+                transform.Translate(cspeed * Time.deltaTime,0.0f,0.0f);
+            }
+        }
+            
         transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed);
 
         TimeSwitch();
