@@ -12,9 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2cdc7bf467f2198488c2b19e97496930
   - enabled: 1
-    path: Assets/Scenes/tutorialScene.unity
-    guid: fc5d7dd4d9093fb4ebc57d066fa60da5
+    path: Assets/Scenes/TutorialSceneObstacles.unity
+    guid: d07810c6125cf8c408f072bccf5e0c97
+  - enabled: 1
+    path: Assets/Scenes/TutorialSceneBounceBack.unity
+    guid: 07cf8dfcab4a42a49be3b5b1363dacab
+  - enabled: 1
+    path: Assets/Scenes/TutorialSceneEnemy.unity
+    guid: 96b76116b7bd2cb4daf57d236e934d61
   - enabled: 1
     path: Assets/Scenes/First Scene.unity
     guid: e75444fd3ffbf584a91a12e9ffcd3f20
+  - enabled: 0
+    path: Assets/Scenes/tutorialScene.unity
+    guid: fc5d7dd4d9093fb4ebc57d066fa60da5
   m_configObjects: {}

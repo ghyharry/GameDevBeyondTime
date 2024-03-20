@@ -25,7 +25,7 @@ public class TeleportEnemyOnDamage : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Debug.Log("Bullet DAMAGE detected");
-
+            MoveObjectToOtherTimeLine(gameObject);
             //Destroy the bullet
             //Destroy(collision.gameObject);
             if (firstFlag == 1)
@@ -33,7 +33,6 @@ public class TeleportEnemyOnDamage : MonoBehaviour
                 StartCoroutine(Timer());
             }
             firstFlag += 1;
-            MoveObjectToOtherTimeLine(gameObject);
 
         }
 

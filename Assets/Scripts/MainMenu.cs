@@ -32,12 +32,24 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void TutorialOnClick()
+    public void TutorialObstacleOnClick()
     {
         SceneManager.LoadScene(1);
     }
-    public void LevelOnClick()
+
+    public void TutorialBounceOnClick()
     {
         SceneManager.LoadScene(2);
     }
+    public void TutorialEnemyOnClick()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void LevelOnClick()
+    {
+        SceneManager.LoadScene(4);
+    }
+
+    
 }
