@@ -45,20 +45,19 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         //Move the player only if bounceBackTimer is 0
-        /*if (bounceBackTimer > 0)
+        if (bounceBackTimer > 0)
         {
             bounceBackTimer -= Time.deltaTime;
-            if (bounceBackTimer <= 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-            }
+            // if (bounceBackTimer <= 0)
+            // {
+            //     gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            // }
             horizontalMovement = 0.0f;
-        }*/
-        /*else
+        }else
         {
             horizontalMovement = Input.GetAxisRaw("Horizontal");
-        }*/
-        horizontalMovement = Input.GetAxisRaw("Horizontal");
+        }
+        //horizontalMovement = Input.GetAxisRaw("Horizontal");
 
 
         verticalMovement = Input.GetAxisRaw("Vertical");
