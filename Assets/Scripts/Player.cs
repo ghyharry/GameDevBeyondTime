@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    /*void LateUpdate()
     {
         //Move the player only if bounceBackTimer is 0
         if (bounceBackTimer > 0)
@@ -73,6 +73,35 @@ public class Player : MonoBehaviour
             }
         }
             
+        transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed);
+
+        TimeSwitch();
+    }*/
+
+    void LateUpdate()
+    {
+        //Move the player only if bounceBackTimer is 0
+        /*if (bounceBackTimer > 0)
+        {
+            bounceBackTimer -= Time.deltaTime;
+            if (bounceBackTimer <= 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            horizontalMovement = 0.0f;
+        }*/
+        /*else
+        {
+            horizontalMovement = Input.GetAxisRaw("Horizontal");
+        }*/
+        horizontalMovement = Input.GetAxisRaw("Horizontal");
+
+
+        verticalMovement = Input.GetAxisRaw("Vertical");
+        if (horizontalMovement > 0)
+            transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalMovement);
+        else
+            Debug.Log("Cannot go back!");
         transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed);
 
         TimeSwitch();
