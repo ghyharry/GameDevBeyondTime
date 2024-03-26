@@ -365,8 +365,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 21
+  m_fontSizeBase: 21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1153,6 +1153,7 @@ GameObject:
   - component: {fileID: 473103789}
   - component: {fileID: 473103787}
   - component: {fileID: 473103794}
+  - component: {fileID: 473103795}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1349,6 +1350,18 @@ MonoBehaviour:
   damageMax: 1
   damageWeak: 0
   restartUI: {fileID: 1383998040}
+--- !u!122 &473103795
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473103786}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4281289124
+  m_Size: 1.35
 --- !u!1 &522193233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,7 +2589,7 @@ GameObject:
   - component: {fileID: 969406838}
   - component: {fileID: 969406837}
   m_Layer: 5
-  m_Name: RestartText
+  m_Name: NextLevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2621,7 +2634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: Next Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4743,8 +4756,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4825,7 +4838,7 @@ GameObject:
   - component: {fileID: 1925395241}
   - component: {fileID: 1925395240}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: NextLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4896,8 +4909,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1383998045}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
-        m_MethodName: RestartBehavior
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: WinCondition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

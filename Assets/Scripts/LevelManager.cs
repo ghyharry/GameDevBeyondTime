@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class Restart : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -21,5 +19,14 @@ public class Restart : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         //gameObject.SetActive(false);
+    }
+
+    public void WinCondition()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void TryAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

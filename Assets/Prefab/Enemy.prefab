@@ -102,6 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1216ab571585f94983f47691173b542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolPoint1: {fileID: 0}
+  patrolPoint2: {fileID: 0}
+  defaultTarget: {fileID: 0}
+  unmoving: 0
   speed: 5
   player: {fileID: 0}
   radius: 5

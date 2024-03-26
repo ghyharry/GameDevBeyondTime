@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 111793310}
   - component: {fileID: 111793309}
   - component: {fileID: 111793308}
+  - component: {fileID: 111793312}
   m_Layer: 5
   m_Name: WinCanvas
   m_TagString: Untagged
@@ -589,6 +590,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &111793312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111793307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc8f0fdb1ed44a4fa65e09b5bc1e076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &128943723
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,8 +820,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1572,9 +1585,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1246475084}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
-        m_MethodName: RestartBehavior
+      - m_Target: {fileID: 111793312}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: WinCondition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1714,8 +1727,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1839,8 +1852,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1246475084}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
+      - m_Target: {fileID: 111793312}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RestartBehavior
         m_Mode: 1
         m_Arguments:
@@ -3178,7 +3191,7 @@ GameObject:
   - component: {fileID: 1246475087}
   - component: {fileID: 1246475086}
   - component: {fileID: 1246475085}
-  - component: {fileID: 1246475084}
+  - component: {fileID: 1246475089}
   m_Layer: 5
   m_Name: RestartCanvas
   m_TagString: Untagged
@@ -3186,18 +3199,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1246475084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246475083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdc8f0fdb1ed44a4fa65e09b5bc1e076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1246475085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3282,6 +3283,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1246475089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246475083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc8f0fdb1ed44a4fa65e09b5bc1e076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1266097203
 GameObject:
   m_ObjectHideFlags: 0
