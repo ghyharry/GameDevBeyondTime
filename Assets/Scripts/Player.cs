@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     public float speed = 10.0f;
     public float cspeed =0.0f;
+    public float pickUpTime = 10f;
     float horizontalMovement;
     float verticalMovement;
 
@@ -204,7 +205,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator PickUpTimer()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(pickUpTime);
         GunPickedText.enabled = false;
     }
 
