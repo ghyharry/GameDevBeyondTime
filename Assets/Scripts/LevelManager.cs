@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     public void RestartBehavior()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //gameObject.SetActive(false);
     }
 
