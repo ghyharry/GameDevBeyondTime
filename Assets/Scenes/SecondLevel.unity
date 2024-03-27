@@ -8085,6 +8085,10 @@ PrefabInstance:
       propertyPath: currentMarker
       value: 
       objectReference: {fileID: 1948987199}
+    - target: {fileID: 175359279335774758, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1058072170}
     - target: {fileID: 721509876655255682, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7
