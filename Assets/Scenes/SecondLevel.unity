@@ -6782,7 +6782,7 @@ PrefabInstance:
     - target: {fileID: 7405403339121657577, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: restartUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1383998040}
     - target: {fileID: 7621499447698848386, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: m_Name
       value: PermanentEnemy
@@ -6830,7 +6830,7 @@ MonoBehaviour:
   defaultTarget: {fileID: 2039403659}
   unmoving: 0
   speed: 5
-  player: {fileID: 0}
+  player: {fileID: 1058072165}
   radius: 5
 --- !u!1 &1880588549
 GameObject:
