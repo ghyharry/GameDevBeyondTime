@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public TMP_Text GunPickedText;
     private Rigidbody2D rb;
 
-    public float jumpCoefficient = 0f;
+    public float jumpCoefficient = 1f;
     public float speed = 10.0f;
     public float cspeed =0.0f;
     public float pickUpTime = 10f;
