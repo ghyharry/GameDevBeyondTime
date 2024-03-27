@@ -13,6 +13,8 @@ TagManager:
   - Bullet
   - ObstacleButton
   - PickUp
+  - PastBoss
+  - CurrentBoss
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class TakeDamage : MonoBehaviour
 
     public GameObject restartUI; // UI to display when player is destroyed
 
+
     void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -50,6 +51,7 @@ public class TakeDamage : MonoBehaviour
             else if (hitCount >= damageMax)
             {
                 Destroy(gameObject); // Destroy the object
+                
                 //If the object is the player, display the restart UI
                 if (gameObject.CompareTag("Player"))
                 {

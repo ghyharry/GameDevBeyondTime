@@ -31,9 +31,8 @@ public class LevelManager : MonoBehaviour
     }
     public void LastSceneWinCondition()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            SceneManager.LoadScene(0);
-        }
+
+        SceneManager.LoadScene(0);
+        
     }
 }

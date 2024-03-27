@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     public GameObject platform2;
     public GameObject winUI;
     public GameObject platform;
+    public GameObject currentBoss;
+    public GameObject pastBoss;
+    public GameObject redWall;
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
     public TMP_Text TimelineTrackerText;
@@ -109,6 +112,13 @@ public class Player : MonoBehaviour
 
 
         TimeSwitch();
+        if(currentBoss == null)
+        {
+            Destroy(redWall);
+        } else if(pastBoss == null)
+        {
+            Destroy(currentBoss);
+        }
     }
 
     void TimeSwitch()
@@ -203,6 +213,15 @@ public class Player : MonoBehaviour
             {
                 
             }*/
+        }
+        else if(collision.collider.tag == "PastBoss")
+        {
+            Destroy(pastBoss);
+            Destroy(currentBoss);
+        }
+        else if(collision.collider.tag == "CurrentBoss")
+        {
+            Destroy(redWall);
         }
     }
 

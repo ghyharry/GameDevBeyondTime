@@ -3,10 +3,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
+
+    
     //public GameObject gameManager;
 
     //[HideInInspector]
-   // public GameManager gameManagerScript;
+    // public GameManager gameManagerScript;
 
 
 
@@ -29,7 +31,6 @@ public class Bullet : MonoBehaviour
         // Print the GameObject's name
         Debug.Log(" BulletCollision detected ");
         Debug.Log(collision.gameObject.name);
-
 
 
 

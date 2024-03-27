@@ -20,7 +20,7 @@ public class boss1 : MonoBehaviour
     void Update()
     {
         Vector3 pposi= player.transform.position;
-        Debug.Log(pposi);
+        //Debug.Log(pposi);
         AttackPlayer();
     }
     private void AttackPlayer()
