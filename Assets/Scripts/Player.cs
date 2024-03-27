@@ -182,6 +182,10 @@ public class Player : MonoBehaviour
 
             //Debug.Log("Button collision. ");
         }
+        else if(collision.collider.tag == "Platform")
+        {
+            speed = 15.0f;
+        }
 
         else if (collision.collider.tag == "ObstacleButton")
         {
