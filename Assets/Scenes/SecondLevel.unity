@@ -1301,8 +1301,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1383998045}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
-        m_MethodName: RestartBehavior
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: TryAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4064,7 +4064,7 @@ Transform:
   m_GameObject: {fileID: 1018778541}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.1, y: 2.7, z: 0}
+  m_LocalPosition: {x: -0.9, y: 2.7, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4925,7 +4925,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1485ad8903152949b026fa849a49ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theplayer: {fileID: 1058072165}
+  player: {fileID: 1058072165}
+  speed: 10
+  attackTimerSeconds: 3
+  restTimerSeconds: 3
 --- !u!1 &1198066333
 GameObject:
   m_ObjectHideFlags: 0
@@ -6961,7 +6964,7 @@ Transform:
   m_GameObject: {fileID: 1889545110}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.13, y: 2.17, z: 0.03684314}
+  m_LocalPosition: {x: 40.5, y: 2.17, z: 0.03684314}
   m_LocalScale: {x: 1.25, y: 1.2787501, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8313,11 +8316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4584592353073497952, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.3
+      value: -154.2
       objectReference: {fileID: 0}
     - target: {fileID: 4584592353073497952, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.8
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 4584592353073497952, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8380,7 +8383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146005356418604311, guid: 2c42f83cec094eb4cbcf80f780a16ec3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 141.11003
+      value: 121.94729
       objectReference: {fileID: 0}
     - target: {fileID: 146005356418604311, guid: 2c42f83cec094eb4cbcf80f780a16ec3, type: 3}
       propertyPath: m_LocalScale.y
@@ -8388,7 +8391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146005356418604311, guid: 2c42f83cec094eb4cbcf80f780a16ec3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.4326
+      value: 31.0116
       objectReference: {fileID: 0}
     - target: {fileID: 146005356418604311, guid: 2c42f83cec094eb4cbcf80f780a16ec3, type: 3}
       propertyPath: m_LocalPosition.y

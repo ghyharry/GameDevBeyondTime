@@ -50,6 +50,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+    public void Level2OnClick()
+    {
+        SceneManager.LoadScene(5);
 
-    
+    }
+
+
 }
