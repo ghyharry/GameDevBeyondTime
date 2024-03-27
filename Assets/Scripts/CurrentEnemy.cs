@@ -47,7 +47,7 @@ public class CurrentEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(unmoving)
+        if(unmoving || player == null)
         {
             return;
         }
@@ -94,9 +94,11 @@ public class CurrentEnemy : MonoBehaviour
         }
 
         // Check if the player is within the radius
-        if (Vector3.Distance(player.transform.position, transform.position) < radius)
-        {
-            currentState = EnemyState.CHASE;
+        if(player != null){
+            if (Vector3.Distance(player.transform.position, transform.position) < radius)
+            {
+                currentState = EnemyState.CHASE;
+            }
         }
     }
 
@@ -120,10 +122,13 @@ public class CurrentEnemy : MonoBehaviour
             currentState = EnemyState.PATROL;
         }
         // Check if the player is within the radius
-        if (Vector3.Distance(player.transform.position, transform.position) < radius)
-        {
-            currentState = EnemyState.CHASE;
+        if(player != null){
+            if (Vector3.Distance(player.transform.position, transform.position) < radius)
+            {
+                currentState = EnemyState.CHASE;
+            }
         }
+        
     }
 
     void TimeSwitchEnemy()

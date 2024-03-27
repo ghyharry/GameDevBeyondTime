@@ -23,7 +23,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        if(player != null)
+        {
+            playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        }
         TimeSwitch();
     }
 
