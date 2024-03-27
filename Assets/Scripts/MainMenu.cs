@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
     public void ExitOnClick()
     {
         Debug.Log("Game exited. ");
-        Application.Quit();
+        //Application.Quit();
     }
 
     public void TutorialObstacleOnClick()
