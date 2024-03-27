@@ -2615,6 +2615,10 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: jumpCoefficient
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: gameManagerScript
       value: 
       objectReference: {fileID: 431642063}
@@ -2645,6 +2649,10 @@ PrefabInstance:
     - target: {fileID: 1220084941469141424, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220084941469141424, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4531860165674198264, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: m_Materials.Array.data[0]
