@@ -8130,6 +8130,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5660895855661772339, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1058072165}
+    - target: {fileID: 5660895855661772339, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
       propertyPath: unmoving
       value: 1
       objectReference: {fileID: 0}
