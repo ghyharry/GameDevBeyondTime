@@ -17,6 +17,8 @@ TagManager:
   - CurrentBoss
   - WrongTimelineTutorialWall
   - Floor
+  - Platform
+  - BulletPlayer
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ public class TakeDamage : MonoBehaviour
     {
 
         // Check if the collision is with a bullet
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("BulletPlayer") || collision.gameObject.CompareTag("Bullet"))
         {
             Debug.Log("Bullet DAMAGE detected");
 

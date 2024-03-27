@@ -14,6 +14,7 @@ public class ShootColorAtPlayer : MonoBehaviour
     void Start()
     {
         shootTimer = shootInterval; // Initialize the shoot timer
+        shootingEnemy = this.gameObject;
     }
 
     void Update()
@@ -70,6 +71,7 @@ public class ShootColorAtPlayer : MonoBehaviour
     }
     private void OnEnable()
     {
+        //ShootAtPlayer();
         Vector2 direction = (player.position - transform.position).normalized; // Calculate the direction to the player
         for (int i = 0; i < bulletArray.Length; i++)
         {
