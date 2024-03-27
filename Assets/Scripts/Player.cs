@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public TMP_Text GunPickedText;
     private Rigidbody2D rb;
 
+    public float jumpCoefficient = 0f;
     public float speed = 10.0f;
     public float cspeed =0.0f;
     public float pickUpTime = 10f;
@@ -95,6 +96,7 @@ public class Player : MonoBehaviour
         {
             horizontalMovement = Input.GetAxisRaw("Horizontal");
         }*/
+
         horizontalMovement = Input.GetAxisRaw("Horizontal");
 
 
@@ -103,7 +105,8 @@ public class Player : MonoBehaviour
             transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalMovement);
         else
             Debug.Log("Cannot go back!");
-        transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed);
+        transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed * jumpCoefficient);
+
 
         TimeSwitch();
     }
