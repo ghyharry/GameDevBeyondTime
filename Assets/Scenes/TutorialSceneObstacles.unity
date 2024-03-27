@@ -2615,6 +2615,10 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: jumpCoefficient
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: gameManagerScript
       value: 
       objectReference: {fileID: 431642063}
