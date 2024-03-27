@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
             transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalMovement);
         else
             Debug.Log("Cannot go back!");
-        transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed * jumpCoefficient);
+        transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed);
 
 
         TimeSwitch();
@@ -157,19 +157,28 @@ public class Player : MonoBehaviour
             //bounce back functionality
             //gameObject.transform.position = new Vector3(60.0f, -1.2f, 0);
             //bounce player back with a force
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bounceBackForce * -1, 0.0f), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bounceBackForce * -1, 10.0f), ForceMode2D.Impulse);
 
             //disable horizontal movement
+            speed = 0;
+            
             bounceBackTimer = bounceBackWaitTime;
+
+
             //set player color to grey
             //gameObject.GetComponent<SpriteRenderer>().color = Color.black;
 
+        }
+        else if (collision.collider.tag == "Floor")
+        {
+            speed = 15.0f;
         }
 
         else if (collision.collider.tag == "PlatformButton")
         {
             //platform movement functionality
             platform.transform.position = new Vector3(75.16f, platform.transform.position.y - 6.0f, 0);
+            speed = 15.0f;
 
             //Debug.Log("Button collision. ");
         }
@@ -204,6 +213,7 @@ public class Player : MonoBehaviour
                 
             }*/
         }
+
     }
 
     private IEnumerator PickUpTimer()

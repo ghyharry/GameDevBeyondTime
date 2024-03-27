@@ -13,6 +13,8 @@ TagManager:
   - Bullet
   - ObstacleButton
   - PickUp
+  - WrongTimelineTutorialWall
+  - Floor
   layers:
   - Default
   - TransparentFX
