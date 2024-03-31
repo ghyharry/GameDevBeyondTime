@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 5f;
+    public Vector2 savedDirection;
+    private float bulletTimeAlive = 5f;
+    private bool isActive = false;
 
-    
     //public GameObject gameManager;
 
     //[HideInInspector]
@@ -17,13 +19,35 @@ public class Bullet : MonoBehaviour
     {
         //gameManagerScript = gameManager.GetComponent<GameManager>();
         // Destroy the bullet after 5 seconds
-        Destroy(gameObject, 5f);
+        //Destroy(gameObject, 5f);
     }
 
     void Update()
     {
         // Move the bullet forward
         //transform.position += transform.right * speed * Time.deltaTime;
+        //If bullet is active, decrement time alive, if the time alive is 0, destroy the bullet.
+        if (isActive)
+        {
+            bulletTimeAlive -= Time.deltaTime;
+            if (bulletTimeAlive <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    void OnEnable()
+    {
+        // Set the velocity of the bullet to the saved direction
+        GetComponent<Rigidbody2D>().velocity = savedDirection * speed;
+        isActive = true;
+    }
+
+    //If bullet is disabled, set isActive to false.
+    void OnDisable()
+    {
+        isActive = false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
