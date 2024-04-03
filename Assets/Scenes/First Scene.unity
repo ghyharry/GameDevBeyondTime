@@ -4287,8 +4287,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: db5a63eaeb7c9a44aa54ff16be4bb559, type: 3}
+  bulletsInT1Count: 0
+  bulletsInT2Count: 0
+  gameManager: {fileID: 2143758519}
+  gameManagerScript: {fileID: 0}
   bulletSpeed: 16
-  bulletCount: 0
   shootOffset: {x: 2, y: 0, z: 0}
 --- !u!1 &1094033397
 GameObject:
@@ -7104,33 +7107,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2910726577392493629, guid: 6c8ee364d02e2f840a8483eaf0850247, type: 3}
   m_PrefabInstance: {fileID: 7239103533044594878}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2143758518}
-  - component: {fileID: 2143758519}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2143758518
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143758517}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -279.6373, y: -0.090893984, z: -0.03684314}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2143758519
+--- !u!114 &2143758519 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7454491530912340242, guid: 6c8ee364d02e2f840a8483eaf0850247, type: 3}
   m_PrefabInstance: {fileID: 7239103533044594878}
@@ -7438,6 +7415,10 @@ PrefabInstance:
       propertyPath: current
       value: 
       objectReference: {fileID: 1775562488}
+    - target: {fileID: 7454491530912340242, guid: 6c8ee364d02e2f840a8483eaf0850247, type: 3}
+      propertyPath: numberOfEnemiesHitInT1
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

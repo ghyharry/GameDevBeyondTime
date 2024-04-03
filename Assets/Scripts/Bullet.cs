@@ -67,10 +67,20 @@ public class Bullet : MonoBehaviour
         // Debug.Log(" BulletCollision detected ");
         // Debug.Log(collision.gameObject.name);
         Debug.Log("The collision has happened. !!!!!!!!!!!!!!!!!!");
-        if(collision.gameObject.tag != "Player")
+        if(collision.gameObject.tag == "Enemy")
         {
-            deathCount += 1;
-            gameManagerScript.numberOfEnemiesKilled += 1;
+            if (gameManagerScript.isCurrentTimeLine)
+            {
+                gameManagerScript.numberOfEnemiesHitInT1 += 1;
+                Debug.Log("Incrementing the enemies hit count in bullet script: to gameManager" + gameManagerScript.numberOfEnemiesHitInT1);
+
+            }
+            else
+            {
+                gameManagerScript.numberOfEnemiesHitInT2 += 1;
+
+            }
+
 
             //tempDeathCount = deathCount;
         }

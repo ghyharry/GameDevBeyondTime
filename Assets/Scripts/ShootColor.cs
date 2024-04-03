@@ -7,7 +7,13 @@ public class ShootColor : MonoBehaviour
     // Reference to the bullet prefab
     public GameObject bulletPrefab;
 
-    public int bulletCount = 0;
+    public int bulletsInT1Count = 0;
+    public int bulletsInT2Count = 0;
+
+
+
+    public GameManager gameManager;
+    public GameManager gameManagerScript;
 
     // Bullet speed
     public float bulletSpeed = 10f;
@@ -15,14 +21,29 @@ public class ShootColor : MonoBehaviour
     //Shoot offset from the player direction
     public Vector3 shootOffset = new Vector3(2f, 0, 0);
 
+
+    private void Start()
+    {
+        gameManagerScript = gameManager.GetComponent<GameManager>();
+    }
     // Update is called once per frame
     void Update()
     {
         // Check for spacebar to shoot
         if (Input.GetButtonDown("Fire1")) // Fire1 is usually mapped to Ctrl and mouse left click
         {
-            bulletCount += 1;
-            Shoot();
+            if (gameManagerScript.isCurrentTimeLine)
+            {
+                Debug.Log("The timeline from shootcolor is : " + gameManagerScript.isCurrentTimeLine);
+                bulletsInT1Count += 1;
+                Shoot();
+            }
+            else
+            {
+                bulletsInT2Count += 1;
+                Shoot();
+            }
+            
         }
     }
 

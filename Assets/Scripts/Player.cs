@@ -71,6 +71,8 @@ public class Player : MonoBehaviour
             inFrontOfObstacleTimer[i] = 0;
             obstacleNameArray[i] = obstacleArray[i].name;
         }
+        bullet.gameManagerScript.numberOfEnemiesHitInT1 = 0;
+        bullet.gameManagerScript.numberOfEnemiesHitInT2 = 0;
 
     }
 
@@ -311,7 +313,7 @@ public class Player : MonoBehaviour
         //Sending data to firebase for player loc death.
         gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
         gameManagerScript.TimeInEachLevel(levelTimerData, timeInTimeline1, timeInTimeline2, sceneName);
-        gameManagerScript.PlayerInfoData(shootColorScript.bulletCount, sceneName);
+        gameManagerScript.PlayerInfoData(shootColorScript.bulletsInT1Count, shootColorScript.bulletsInT2Count, sceneName);
         gameManagerScript.TimeInFrontOfObstacle(inFrontOfObstacleTimer, obstacleNameArray, sceneName);
 
     }

@@ -23,8 +23,11 @@ public class LevelTimerData
 [System.Serializable]
 public class PlayerInfoDataStruct
 {
-    public int bulletCount;
-    public int deathCount;
+    public int bulletCountInT1;
+    public int bulletCountInT2;
+    public int enemiesHitInT1;
+    public int enemiesHitInT2;
+    //public int deathCount;
     public string levelName;
 }
 
@@ -40,7 +43,9 @@ public class GameManager : MonoBehaviour
 {
 
     public bool isCurrentTimeLine = true;
-    public int numberOfEnemiesKilled = 0;
+    public int numberOfEnemiesHitInT1;
+    public int numberOfEnemiesHitInT2;
+
     public Vector3 playerPos;
 
     public GameObject current;
@@ -56,6 +61,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        numberOfEnemiesHitInT1 = 0;
+        numberOfEnemiesHitInT2 = 0;
         //sceneOne = sceneOne.GetComponent<CustomSceneManager>();
 
     }
@@ -106,14 +113,19 @@ public class GameManager : MonoBehaviour
         lTimer.levelName = sceneName;
         RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/" + totalLevelJsonFile, lTimer);
     }
-    public void PlayerInfoData(int bulletCount, string sceneName)
+    public void PlayerInfoData(int bulletCountInT1, int bulletCountInT2, string sceneName)
     {
-        Debug.Log("The number of enemies killed is : " + numberOfEnemiesKilled);
+        //Debug.Log("The number of enemies killed is : " + numberOfEnemiesKilled);
         PlayerInfoDataStruct playerInfo = new PlayerInfoDataStruct();
-        playerInfo.bulletCount = bulletCount;
-        playerInfo.deathCount = numberOfEnemiesKilled;
+        playerInfo.bulletCountInT1 = bulletCountInT1;
+        playerInfo.bulletCountInT2 = bulletCountInT2;
+        playerInfo.enemiesHitInT1 = numberOfEnemiesHitInT1;
+        playerInfo.enemiesHitInT2 = numberOfEnemiesHitInT2;
+
         playerInfo.levelName = sceneName;
         RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/" + playerInfoJsonFile, playerInfo);
+        numberOfEnemiesHitInT1 = 0;
+        numberOfEnemiesHitInT2 = 0;
     }
 
     public void TimeInFrontOfObstacle(float[] timer, string[] obstacleName, string levelName)
