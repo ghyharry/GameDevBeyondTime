@@ -37,33 +37,32 @@ public class ShootColorAtPlayer : MonoBehaviour
             Vector3 offset = new Vector3(0, 2f, 0); // Offset to spawn the bullet slightly above the shooter
             GameObject bullet = Instantiate(bulletPrefab, transform.position + offset, Quaternion.identity); // Instantiate the bullet at the shooter's position + offset
             bullet.transform.SetParent(shootingEnemy.transform); //set the bullets as child of enemy.
-            Vector2 direction = (player.position - transform.position).normalized; // Calculate the direction to the player
+            Vector2 direction = (player.position - bullet.transform.position).normalized; // Calculate the direction to the player
 
             bullet.GetComponent<Bullet>().savedDirection = direction;
+            bullet.GetComponent<Bullet>().speed = bulletSpeed;
+            bullet.GetComponent<Bullet>().UpdateVelocity();
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component of the bullet
             //bulletArray = GameObject.FindGameObjectsWithTag("Bullet");
             //Debug.Log("The bullet array is : " + bulletArray.Length);
-            if (rb != null)
-            {
-                // for(int i = 0; i < bulletArray.Length; i++)
-                // {
-                //     if (bulletArray[i].active)
-                //     {
-                //         bulletArray[i].GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-                //     }
-                // }
-                rb.velocity = direction * bullet.GetComponent<Bullet>().speed; // Set the bullet's velocity towards the player
-                SpriteRenderer bulletSpriteRenderer = bullet.GetComponent<SpriteRenderer>(); // Get the SpriteRenderer of the bullet
-                SpriteRenderer shooterSpriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer of the shooter
+            // if (rb != null)
+            // {
+            //     // for(int i = 0; i < bulletArray.Length; i++)
+            //     // {
+            //     //     if (bulletArray[i].active)
+            //     //     {
+            //     //         bulletArray[i].GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            //     //     }
+            //     // }
+            //     //rb.velocity = direction * bullet.GetComponent<Bullet>().speed; // Set the bullet's velocity towards the player
+                
+            // }
+            SpriteRenderer bulletSpriteRenderer = bullet.GetComponent<SpriteRenderer>(); // Get the SpriteRenderer of the bullet
+            SpriteRenderer shooterSpriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer of the shooter
 
-                if (bulletSpriteRenderer != null && shooterSpriteRenderer != null)
-                {
-                    bulletSpriteRenderer.color = shooterSpriteRenderer.color; // Set the bullet's color to match the shooter's color
-                }
-            }
-            else
+            if (bulletSpriteRenderer != null && shooterSpriteRenderer != null)
             {
-                Debug.LogError("Bullet prefab does not have a Rigidbody2D component attached.");
+                bulletSpriteRenderer.color = shooterSpriteRenderer.color; // Set the bullet's color to match the shooter's color
             }
         }
         else

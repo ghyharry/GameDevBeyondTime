@@ -47,17 +47,9 @@ public class ShootColor : MonoBehaviour
 
             // Assuming the bullet moves along the x-axis; modify as needed
             Vector2 shootDirection = transform.right;
-
-            // Add velocity to the bullet Rigidbody2D component to shoot it
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.velocity = shootDirection * bulletSpeed;
-            }
-            else
-            {
-                Debug.LogError("Bullet prefab is missing a Rigidbody2D component.");
-            }
+            bullet.GetComponent<Bullet>().savedDirection = shootDirection;
+            bullet.GetComponent<Bullet>().speed = bulletSpeed;
+            bullet.GetComponent<Bullet>().UpdateVelocity();
         }
         else
         {
