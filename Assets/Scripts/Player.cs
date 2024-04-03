@@ -106,8 +106,8 @@ public class Player : MonoBehaviour
         verticalMovement = Input.GetAxisRaw("Vertical");
         if (horizontalMovement > 0)
             transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalMovement);
-        else
-            Debug.Log("Cannot go back!");
+        //else
+            //Debug.Log("Cannot go back!");
         transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed);
 
 
@@ -123,11 +123,11 @@ public class Player : MonoBehaviour
 
     void TimeSwitch()
     {
-        Debug.Log("The player value in bool is " + gameManagerScript.isCurrentTimeLine);
+        //Debug.Log("The player value in bool is " + gameManagerScript.isCurrentTimeLine);
 
         if (gameManagerScript.isCurrentTimeLine)
         {
-            Debug.Log("Inside true. ");
+            //Debug.Log("Inside true. ");
             floor.GetComponent<SpriteRenderer>().material = currentFloorMaterial;
             Camera.main.backgroundColor = Color.blue;
             TimelineTrackerText.SetText("Current Timeline");
@@ -208,7 +208,7 @@ public class Player : MonoBehaviour
         else if(collision.collider.tag == "PickUp")
         {
             GunPickedText.enabled = true;
-            Debug.Log("Shooting enabled");
+            //Debug.Log("Shooting enabled");
             this.GetComponent<ShootColor>().enabled = true;
             Destroy(collision.collider.gameObject);
 
@@ -216,7 +216,7 @@ public class Player : MonoBehaviour
             StartCoroutine(PickUpTimer());
 
             //textTimer -= Time.deltaTime;
-            Debug.Log("The timer for picked up text is : " + textTimer);
+            //Debug.Log("The timer for picked up text is : " + textTimer);
 
            /* if (textTimer > 0)
             {

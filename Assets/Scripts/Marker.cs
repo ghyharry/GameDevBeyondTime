@@ -17,7 +17,7 @@ public class Marker : MonoBehaviour
     void Update()
     {
         isPast = tpScript.isPast;
-        Debug.Log("The enemy timeline is : " + tpScript.isPast);
+        //Debug.Log("The enemy timeline is : " + tpScript.isPast);
         this.transform.position = enemyMarker.transform.position;
        
     }

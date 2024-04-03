@@ -64,6 +64,7 @@ public class TeleportEnemyOnDamage : MonoBehaviour
         {
             //timeFlipText.enabled = false;
             currentMarker.SetActive(true);
+            
             pastMarker.SetActive(false);
         }
         else    //if enemy is in the current timeline.

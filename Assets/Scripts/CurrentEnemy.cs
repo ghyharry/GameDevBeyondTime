@@ -39,7 +39,7 @@ public class CurrentEnemy : MonoBehaviour
         } else {
             //Dont move
             //Log
-            Debug.Log("No patrol points found");
+            //Debug.Log("No patrol points found");
         }
         
     }
@@ -58,17 +58,17 @@ public class CurrentEnemy : MonoBehaviour
             {
                 case EnemyState.PATROL:
                     //Log
-                    Debug.Log("Patrolling");
+                    //Debug.Log("Patrolling");
                     MoveTowardsTarget();
                     break;
                 case EnemyState.GOINGBACK:
                     //Log
-                    Debug.Log("Going back to patrol");
+                    //Debug.Log("Going back to patrol");
                     MoveBackToPatrol();
                     break;
                 case EnemyState.CHASE:
                     //Log
-                    Debug.Log("Chasing player");
+                    //Debug.Log("Chasing player");
                     MoveTowardsPlayer(); 
                     break;
             }
@@ -82,7 +82,7 @@ public class CurrentEnemy : MonoBehaviour
     void MoveTowardsTarget()
     {
         //Log
-        Debug.Log("Moving towards target");
+        //Debug.Log("Moving towards target");
 
         transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, speed * Time.deltaTime);
 

@@ -274,7 +274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: 6ad4a7adc8c47f9468b98a3f5414ce27, type: 3}
   shootingEnemy: {fileID: 3721899}
-  player: {fileID: 1058072170}
   shootInterval: 2
   bulletSpeed: 5
 --- !u!114 &3721906
@@ -791,7 +790,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: 6ad4a7adc8c47f9468b98a3f5414ce27, type: 3}
   shootingEnemy: {fileID: 44648936}
-  player: {fileID: 1058072170}
   shootInterval: 2
   bulletSpeed: 5
 --- !u!114 &44648943
@@ -2058,7 +2056,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: 6ad4a7adc8c47f9468b98a3f5414ce27, type: 3}
   shootingEnemy: {fileID: 541704694}
-  player: {fileID: 1058072170}
   shootInterval: 2
   bulletSpeed: 5
 --- !u!114 &541704701
@@ -2441,7 +2438,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: 6ad4a7adc8c47f9468b98a3f5414ce27, type: 3}
   shootingEnemy: {fileID: 0}
-  player: {fileID: 1058072170}
   shootInterval: 2
   bulletSpeed: 5
 --- !u!114 &612653297
@@ -4597,11 +4593,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4724674688438365622, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
   m_PrefabInstance: {fileID: 2516339817272353270}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1058072170 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4584592353073497952, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
-  m_PrefabInstance: {fileID: 2516339817272353270}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1058072171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4630,7 +4621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: db5a63eaeb7c9a44aa54ff16be4bb559, type: 3}
-  bulletSpeed: 10
+  bulletSpeed: 16
   shootOffset: {x: 2, y: 0, z: 0}
 --- !u!1 &1074850928 stripped
 GameObject:
@@ -6334,7 +6325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: 6ad4a7adc8c47f9468b98a3f5414ce27, type: 3}
   shootingEnemy: {fileID: 1574145782}
-  player: {fileID: 1058072170}
   shootInterval: 2
   bulletSpeed: 5
 --- !u!114 &1574145789
