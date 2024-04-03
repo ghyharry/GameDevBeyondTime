@@ -20,6 +20,7 @@ TagManager:
   - Platform
   - BulletPlayer
   - TheButton
+  - PlayerObstacle
   layers:
   - Default
   - TransparentFX

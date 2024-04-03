@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
 
@@ -9,6 +10,10 @@ public class Player : MonoBehaviour
     public GameObject gameManager;
 
     public GameManager gameManagerScript;
+    public ShootColor shootColor;
+    public ShootColor shootColorScript;
+    public Bullet bullet;
+    public Bullet bulletScript;
     public GameObject floor;
     public GameObject restartUI;
     public GameObject platform2;
@@ -37,14 +42,61 @@ public class Player : MonoBehaviour
     private float bounceBackTimer = 0.0f;
     float textTimer = 2.0f;
 
+    private float levelTimerData = 0;
+    private float tempLevelTimerData = 0;
+
+    private float timeInTimeline1 = 0;
+    private float timeInTimeline2 = 0;
+
+    private GameObject[] obstacleArray;
+    public float[] inFrontOfObstacleTimer;
+    public float tempInFrontOfObstacleTimer = 0;
+    public string[] obstacleNameArray;
+    public string nameOfObstacle = "";
+
     // Start is called before the first frame update
     void Start()
     {
         GunPickedText.enabled = false;
         //gameManager = new GameManager();
         gameManagerScript = gameManager.GetComponent<GameManager>();
+        shootColorScript = shootColor.GetComponent<ShootColor>();
+        bulletScript = bullet.GetComponent<Bullet>();
         this.GetComponent<ShootColor>().enabled = false;
         rb = GetComponent<Rigidbody2D>();
+        obstacleArray = GameObject.FindGameObjectsWithTag("PlayerObstacle");
+        inFrontOfObstacleTimer = new float[obstacleArray.Length];
+        obstacleNameArray = new string[obstacleArray.Length];
+        for (int i = 0; i < obstacleArray.Length; i++)
+        {
+            inFrontOfObstacleTimer[i] = 0;
+            obstacleNameArray[i] = obstacleArray[i].name;
+        }
+
+    }
+
+    void Update()
+    {
+        levelTimerData += Time.deltaTime;
+        if (obstacleArray != null)
+            Debug.Log("The obstacle array is not null : " + obstacleArray.Length);
+        {
+            for(int i = 0; i < obstacleArray.Length; i++)
+            {
+                if((this.transform.position.x - obstacleArray[i].transform.position.x) <= 10 && (this.transform.position.x - obstacleArray[i].transform.position.x) > 0)
+                {
+                    inFrontOfObstacleTimer[i] += Time.deltaTime;
+                    //nameOfObstacle = obstacleArray[i].name;
+                }
+                else if((this.transform.position.x - obstacleArray[i].transform.position.x) < 0)
+                {
+                    tempInFrontOfObstacleTimer = inFrontOfObstacleTimer[i];
+                    //inFrontOfObstacleTimer = 0;
+                }
+            }
+        }
+
+
     }
 
     // Update is called once per frame
@@ -132,12 +184,14 @@ public class Player : MonoBehaviour
             floor.GetComponent<SpriteRenderer>().material = currentFloorMaterial;
             Camera.main.backgroundColor = Color.blue;
             TimelineTrackerText.SetText("Current Timeline");
+            timeInTimeline1 += Time.deltaTime;
         }
         else
         {
             floor.GetComponent<SpriteRenderer>().material = pastFloorMaterial;
             Camera.main.backgroundColor = Color.grey;
             TimelineTrackerText.SetText("Past Timeline");
+            timeInTimeline2 += Time.deltaTime;
         }
 
     }
@@ -252,8 +306,13 @@ public class Player : MonoBehaviour
 
     private void OnDestroy()
     {
+        tempLevelTimerData = levelTimerData;
+        string sceneName = SceneManager.GetActiveScene().name;
         //Sending data to firebase for player loc death.
         gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+        gameManagerScript.TimeInEachLevel(levelTimerData, timeInTimeline1, timeInTimeline2, sceneName);
+        gameManagerScript.PlayerInfoData(shootColorScript.bulletCount, sceneName);
+        gameManagerScript.TimeInFrontOfObstacle(inFrontOfObstacleTimer, obstacleNameArray, sceneName);
 
     }
 }
