@@ -16,7 +16,7 @@ public class TeleportEnemyOnDamage : MonoBehaviour
 
     private void Start()
     {
-        timeFlipText.enabled = false;
+        //timeFlipText.enabled = false;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

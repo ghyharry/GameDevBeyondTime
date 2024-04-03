@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
         //gameManagerScript = gameManager.GetComponent<GameManager>();
         // Destroy the bullet after 5 seconds
         //Destroy(gameObject, 5f);
+        
     }
 
     void Update()

@@ -187,7 +187,7 @@ public class Player : MonoBehaviour
         else if (collision.collider.tag == "PlatformButton")
         {
             //platform movement functionality
-            platform.transform.position = new Vector3(75.16f, platform.transform.position.y - 6.0f, 0);
+            platform.transform.position = new Vector3(platform.transform.position.x, platform.transform.position.y - 6.0f, 0);
             speed = 15.0f;
 
             //Debug.Log("Button collision. ");
