@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public GameObject current;
     public GameObject past;
     public GameObject player;
-    public CustomSceneManager sceneOne;
+    //public CustomSceneManager sceneOne;
 
 
     private string deathLocationJsonFile = "DeathLocation.json";
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        sceneOne = sceneOne.GetComponent<CustomSceneManager>();
+        //sceneOne = sceneOne.GetComponent<CustomSceneManager>();
 
     }
     // Update is called once per frame
