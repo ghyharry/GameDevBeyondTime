@@ -25,7 +25,7 @@ public class TeleportEnemyOnDamage : MonoBehaviour
     {
 
         // Check if the collision is with a bullet
-        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("BulletPlayer"))
+        if (collision.gameObject.CompareTag("BulletPlayer"))
         {
             Debug.Log("Bullet DAMAGE detected");
             MoveObjectToOtherTimeLine(gameObject);

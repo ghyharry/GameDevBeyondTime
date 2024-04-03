@@ -19,6 +19,7 @@ TagManager:
   - Floor
   - Platform
   - BulletPlayer
+  - TheButton
   layers:
   - Default
   - TransparentFX
