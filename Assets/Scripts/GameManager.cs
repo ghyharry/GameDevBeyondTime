@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using Proyecto26;
 
 [System.Serializable]
@@ -10,16 +11,45 @@ public class PlayerDeathLocData
     public float y;
 }
 
+[System.Serializable]
+public class LevelTimerData
+{
+    public float totalLevelTimerData;
+    public float timeInT1;
+    public float timeInT2;
+    public string levelName;
+}
+
+[System.Serializable]
+public class PlayrInfoDataStruct
+{
+    public int bulletCount;
+    public int deathCount;
+    public string levelName;
+}
+
 public class GameManager : MonoBehaviour
 {
 
     public bool isCurrentTimeLine = true;
+    public int numberOfEnemiesKilled = 0;
     public Vector3 playerPos;
 
     public GameObject current;
     public GameObject past;
     public GameObject player;
+    public CustomSceneManager sceneOne;
 
+
+    private string deathLocationJsonFile = "DeathLocation.json";
+    private string totalLevelJsonFile = "LevelTime.json";
+    private string playerInfoJsonFile = "PlayerGameInfo.json";
+
+    private void Start()
+    {
+        sceneOne = sceneOne.GetComponent<CustomSceneManager>();
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -56,6 +86,28 @@ public class GameManager : MonoBehaviour
         pdata.x = playerPos.x;
         pdata.y = playerPos.y;
         string json = JsonUtility.ToJson(pdata);
-        RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/.json", pdata);
+        RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/"+ deathLocationJsonFile, pdata);
+    }
+    public void TimeInFrontOfObstacles()
+    {
+
+    }
+    public void TimeInEachLevel(float totalLevelTimer, float timeInT1, float timeInT2, string sceneName)
+    {
+        LevelTimerData lTimer = new LevelTimerData();
+        lTimer.totalLevelTimerData = totalLevelTimer;
+        lTimer.timeInT1 = timeInT1;
+        lTimer.timeInT2 = timeInT2;
+        lTimer.levelName = sceneName;
+        RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/" + totalLevelJsonFile, lTimer);
+    }
+    public void PlayerInfoData(int bulletCount, string sceneName)
+    {
+        Debug.Log("The number of enemies killed is : " + numberOfEnemiesKilled);
+        PlayrInfoDataStruct playerInfo = new PlayrInfoDataStruct();
+        playerInfo.bulletCount = bulletCount;
+        playerInfo.deathCount = numberOfEnemiesKilled;
+        playerInfo.levelName = sceneName;
+        RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/" + playerInfoJsonFile, playerInfo);
     }
 }
