@@ -4273,7 +4273,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMax: 1
   damageWeak: 0
+  current: {fileID: 0}
+  past: {fileID: 0}
   restartUI: {fileID: 1383998040}
+  isPast: 0
+  firstFlag: 1
 --- !u!114 &1058072172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4290,6 +4294,21 @@ MonoBehaviour:
   bulletSpeed: 16
   bulletCount: 0
   shootOffset: {x: 2, y: 0, z: 0}
+--- !u!114 &1058072178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058072165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35aeb8c2deb0ddf45aeca9e9ffb4e7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMax: 1
+  damageWeak: 0
+  restartUI: {fileID: 1383998040}
 --- !u!1 &1094033397
 GameObject:
   m_ObjectHideFlags: 0
@@ -7284,6 +7303,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4724674688438365622, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1058072172}
+    - targetCorrespondingSourceObject: {fileID: 4724674688438365622, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1058072178}
   m_SourcePrefab: {fileID: 100100000, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
 --- !u!1001 &6052001191347711237
 PrefabInstance:

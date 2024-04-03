@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public TMP_Text TimelineTrackerText;
     public TMP_Text GunPickedText;
     private Rigidbody2D rb;
+    public Transform current;
 
     public float jumpCoefficient = 1f;
     public float speed = 10.0f;
@@ -164,10 +165,10 @@ public class Player : MonoBehaviour
 
 
         TimeSwitch();
-        if(currentBoss == null)
+        if(currentBoss.active==false)
         {
             Destroy(redWall);
-        } else if(pastBoss == null)
+        } else if(pastBoss.transform.parent==current)
         {
             Destroy(currentBoss);
         }
@@ -197,8 +198,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone")
+        if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone"||collision.collider.tag == "PastBoss" || collision.collider.tag == "CurrentBoss")
         {
             //Send death loc data to firebase db
             //gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
