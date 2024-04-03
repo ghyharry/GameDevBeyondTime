@@ -21,10 +21,18 @@ public class LevelTimerData
 }
 
 [System.Serializable]
-public class PlayrInfoDataStruct
+public class PlayerInfoDataStruct
 {
     public int bulletCount;
     public int deathCount;
+    public string levelName;
+}
+
+[System.Serializable]
+public class TimeInFrontOfObstacleStruct
+{
+    public float[] timeInFrontOfObstacles;
+    public string[] obstacleName;
     public string levelName;
 }
 
@@ -44,6 +52,7 @@ public class GameManager : MonoBehaviour
     private string deathLocationJsonFile = "DeathLocation.json";
     private string totalLevelJsonFile = "LevelTime.json";
     private string playerInfoJsonFile = "PlayerGameInfo.json";
+    private string timeInFrontOfObstacleJsonFile = "TimeAtObstacle.json";
 
     private void Start()
     {
@@ -88,10 +97,6 @@ public class GameManager : MonoBehaviour
         string json = JsonUtility.ToJson(pdata);
         RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/"+ deathLocationJsonFile, pdata);
     }
-    public void TimeInFrontOfObstacles()
-    {
-
-    }
     public void TimeInEachLevel(float totalLevelTimer, float timeInT1, float timeInT2, string sceneName)
     {
         LevelTimerData lTimer = new LevelTimerData();
@@ -104,10 +109,20 @@ public class GameManager : MonoBehaviour
     public void PlayerInfoData(int bulletCount, string sceneName)
     {
         Debug.Log("The number of enemies killed is : " + numberOfEnemiesKilled);
-        PlayrInfoDataStruct playerInfo = new PlayrInfoDataStruct();
+        PlayerInfoDataStruct playerInfo = new PlayerInfoDataStruct();
         playerInfo.bulletCount = bulletCount;
         playerInfo.deathCount = numberOfEnemiesKilled;
         playerInfo.levelName = sceneName;
         RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/" + playerInfoJsonFile, playerInfo);
+    }
+
+    public void TimeInFrontOfObstacle(float[] timer, string[] obstacleName, string levelName)
+    {
+        TimeInFrontOfObstacleStruct obstTime = new TimeInFrontOfObstacleStruct();
+        obstTime.timeInFrontOfObstacles = timer;
+        obstTime.obstacleName = obstacleName;
+        obstTime.levelName = levelName;
+        RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/" + timeInFrontOfObstacleJsonFile, obstTime);
+
     }
 }

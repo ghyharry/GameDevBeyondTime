@@ -47,6 +47,12 @@ public class Player : MonoBehaviour
     private float timeInTimeline1 = 0;
     private float timeInTimeline2 = 0;
 
+    private GameObject[] obstacleArray;
+    public float[] inFrontOfObstacleTimer;
+    public float tempInFrontOfObstacleTimer = 0;
+    public string[] obstacleNameArray;
+    public string nameOfObstacle = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,11 +63,37 @@ public class Player : MonoBehaviour
         bulletScript = bullet.GetComponent<Bullet>();
         this.GetComponent<ShootColor>().enabled = false;
         rb = GetComponent<Rigidbody2D>();
+        obstacleArray = GameObject.FindGameObjectsWithTag("PlayerObstacle");
+        inFrontOfObstacleTimer = new float[obstacleArray.Length];
+        obstacleNameArray = new string[obstacleArray.Length];
+        for (int i = 0; i < obstacleArray.Length; i++)
+        {
+            inFrontOfObstacleTimer[i] = 0;
+            obstacleNameArray[i] = obstacleArray[i].name;
+        }
+
     }
 
     void Update()
     {
         levelTimerData += Time.deltaTime;
+        if (obstacleArray != null)
+            Debug.Log("The obstacle array is not null : " + obstacleArray.Length);
+        {
+            for(int i = 0; i < obstacleArray.Length; i++)
+            {
+                if((this.transform.position.x - obstacleArray[i].transform.position.x) <= 10 && (this.transform.position.x - obstacleArray[i].transform.position.x) > 0)
+                {
+                    inFrontOfObstacleTimer[i] += Time.deltaTime;
+                    //nameOfObstacle = obstacleArray[i].name;
+                }
+                else if((this.transform.position.x - obstacleArray[i].transform.position.x) < 0)
+                {
+                    tempInFrontOfObstacleTimer = inFrontOfObstacleTimer[i];
+                    //inFrontOfObstacleTimer = 0;
+                }
+            }
+        }
 
 
     }
@@ -165,6 +197,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone")
         {
             //Send death loc data to firebase db
@@ -274,10 +307,12 @@ public class Player : MonoBehaviour
     private void OnDestroy()
     {
         tempLevelTimerData = levelTimerData;
+        string sceneName = SceneManager.GetActiveScene().name;
         //Sending data to firebase for player loc death.
         gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
-        gameManagerScript.TimeInEachLevel(levelTimerData, timeInTimeline1, timeInTimeline2, SceneManager.GetActiveScene().name);
-        gameManagerScript.PlayerInfoData(shootColorScript.bulletCount, SceneManager.GetActiveScene().name);
+        gameManagerScript.TimeInEachLevel(levelTimerData, timeInTimeline1, timeInTimeline2, sceneName);
+        gameManagerScript.PlayerInfoData(shootColorScript.bulletCount, sceneName);
+        gameManagerScript.TimeInFrontOfObstacle(inFrontOfObstacleTimer, obstacleNameArray, sceneName);
 
     }
 }
