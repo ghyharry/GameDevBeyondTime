@@ -236,6 +236,10 @@ public class Player : MonoBehaviour
         {
             Destroy(redWall);
         }
+        else if(collision.collider.tag == "BulletPlayer")
+        {
+            Debug.Log("Hit by my bullet. ");
+        }
 
     }
 
