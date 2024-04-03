@@ -4322,6 +4322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCurrentTimeLine: 1
+  numberOfEnemiesHitInT1: 0
+  numberOfEnemiesHitInT2: 0
   playerPos: {x: 0, y: 0, z: 0}
   current: {fileID: 337566583}
   past: {fileID: 1929843853}
@@ -5643,6 +5645,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1134551636}
     - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8239243273357864716, guid: 6ad4a7adc8c47f9468b98a3f5414ce27, type: 3}
+    - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: platform
       value: 
       objectReference: {fileID: 0}
@@ -5654,6 +5660,10 @@ PrefabInstance:
       propertyPath: restartUI
       value: 
       objectReference: {fileID: 1106464216}
+    - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+      propertyPath: shootColor
+      value: 
+      objectReference: {fileID: 2110586096}
     - target: {fileID: 1189952571946699750, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       propertyPath: gameManager
       value: 
@@ -5781,12 +5791,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110586095}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d2e8c5252f4d8448af889679f339920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: db5a63eaeb7c9a44aa54ff16be4bb559, type: 3}
+  bulletsInT1Count: 0
+  bulletsInT2Count: 0
+  gameManager: {fileID: 1529992013}
+  gameManagerScript: {fileID: 0}
   bulletSpeed: 16
   shootOffset: {x: 2, y: 0, z: 0}
 --- !u!114 &2110586097
@@ -5803,7 +5817,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMax: 1
   damageWeak: 0
+  current: {fileID: 0}
+  past: {fileID: 0}
   restartUI: {fileID: 1106464216}
+  isPast: 0
+  firstFlag: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

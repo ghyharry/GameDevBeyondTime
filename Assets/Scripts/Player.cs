@@ -72,8 +72,8 @@ public class Player : MonoBehaviour
             inFrontOfObstacleTimer[i] = 0;
             obstacleNameArray[i] = obstacleArray[i].name;
         }
-        bullet.gameManagerScript.numberOfEnemiesHitInT1 = 0;
-        bullet.gameManagerScript.numberOfEnemiesHitInT2 = 0;
+        /*bullet.gameManagerScript.numberOfEnemiesHitInT1 = 0;
+        bullet.gameManagerScript.numberOfEnemiesHitInT2 = 0;*/
 
     }
 
