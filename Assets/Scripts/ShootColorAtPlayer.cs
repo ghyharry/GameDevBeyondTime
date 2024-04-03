@@ -8,6 +8,7 @@ public class ShootColorAtPlayer : MonoBehaviour
     private Transform player; // The player's transform
     public float shootInterval = 2f; // Time between shots
     public float bulletSpeed = 5f; // Speed of the bullet
+    public int offsetInt = 1;
 
     private float shootTimer; // Timer to track shooting intervals
 
@@ -34,7 +35,9 @@ public class ShootColorAtPlayer : MonoBehaviour
     {
         if (bulletPrefab != null)
         {
-            Vector3 offset = new Vector3(0, 2f, 0); // Offset to spawn the bullet slightly above the shooter
+            // Offset to spawn the bullet slightly in the upward direction of the shooter
+            
+            Vector3 offset = new Vector3(0, 2f * offsetInt, 0); 
             GameObject bullet = Instantiate(bulletPrefab, transform.position + offset, Quaternion.identity); // Instantiate the bullet at the shooter's position + offset
             bullet.transform.SetParent(shootingEnemy.transform); //set the bullets as child of enemy.
             Vector2 direction = (player.position - bullet.transform.position).normalized; // Calculate the direction to the player

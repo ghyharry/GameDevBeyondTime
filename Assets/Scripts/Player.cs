@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         GunPickedText.enabled = false;
+        //this.GetComponent<Halo>().enabled = false;
         //gameManager = new GameManager();
         gameManagerScript = gameManager.GetComponent<GameManager>();
         shootColorScript = shootColor.GetComponent<ShootColor>();
@@ -243,6 +244,7 @@ public class Player : MonoBehaviour
         {
             //platform movement functionality
             platform.transform.position = new Vector3(platform.transform.position.x, platform.transform.position.y - 6.0f, 0);
+            
             speed = 15.0f;
 
             //Debug.Log("Button collision. ");
@@ -263,6 +265,10 @@ public class Player : MonoBehaviour
         else if(collision.collider.tag == "PickUp")
         {
             GunPickedText.enabled = true;
+
+            //Change player color to light blue
+            gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
+
             //Debug.Log("Shooting enabled");
             this.GetComponent<ShootColor>().enabled = true;
             Destroy(collision.collider.gameObject);
