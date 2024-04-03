@@ -163,3 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   savedDirection: {x: 0, y: 0}
+  deathCount: 0
+  gameManager: {fileID: 7454491530912340242, guid: 6c8ee364d02e2f840a8483eaf0850247, type: 3}
+  gameManagerScript: {fileID: 0}

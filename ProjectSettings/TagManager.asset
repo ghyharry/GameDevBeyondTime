@@ -19,6 +19,7 @@ TagManager:
   - Floor
   - Platform
   - BulletPlayer
+  - PlayerObstacle
   layers:
   - Default
   - TransparentFX

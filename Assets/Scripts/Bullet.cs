@@ -6,6 +6,9 @@ public class Bullet : MonoBehaviour
     public Vector2 savedDirection;
     private float bulletTimeAlive = 5f;
     private bool isActive = true;
+    public int deathCount = 0;
+    public GameManager gameManager;
+    public GameManager gameManagerScript;
 
     //public GameObject gameManager;
 
@@ -17,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        //gameManagerScript = gameManager.GetComponent<GameManager>();
+        gameManagerScript = gameManager.GetComponent<GameManager>();
         // Destroy the bullet after 5 seconds
         //Destroy(gameObject, 5f);
         
@@ -63,6 +66,14 @@ public class Bullet : MonoBehaviour
         // // Print the GameObject's name
         // Debug.Log(" BulletCollision detected ");
         // Debug.Log(collision.gameObject.name);
+
+        if(collision.gameObject.tag != "Player")
+        {
+            deathCount += 1;
+            gameManagerScript.numberOfEnemiesKilled += 1;
+
+            //tempDeathCount = deathCount;
+        }
 
 
 

@@ -7,6 +7,8 @@ public class ShootColor : MonoBehaviour
     // Reference to the bullet prefab
     public GameObject bulletPrefab;
 
+    public int bulletCount = 0;
+
     // Bullet speed
     public float bulletSpeed = 10f;
 
@@ -19,6 +21,7 @@ public class ShootColor : MonoBehaviour
         // Check for spacebar to shoot
         if (Input.GetButtonDown("Fire1")) // Fire1 is usually mapped to Ctrl and mouse left click
         {
+            bulletCount += 1;
             Shoot();
         }
     }
