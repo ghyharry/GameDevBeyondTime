@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     public float speed = 5f;
     public Vector2 savedDirection;
     private float bulletTimeAlive = 5f;
-    private bool isActive = false;
+    private bool isActive = true;
 
     //public GameObject gameManager;
 
@@ -30,12 +30,19 @@ public class Bullet : MonoBehaviour
         //If bullet is active, decrement time alive, if the time alive is 0, destroy the bullet.
         if (isActive)
         {
+            UpdateVelocity();
             bulletTimeAlive -= Time.deltaTime;
             if (bulletTimeAlive <= 0)
             {
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void UpdateVelocity()
+    {
+        // Set the velocity of the bullet to the direction passed in
+        GetComponent<Rigidbody2D>().velocity = savedDirection * speed;
     }
 
     void OnEnable()
@@ -53,21 +60,27 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Print the GameObject's name
-        Debug.Log(" BulletCollision detected ");
-        Debug.Log(collision.gameObject.name);
+        // // Print the GameObject's name
+        // Debug.Log(" BulletCollision detected ");
+        // Debug.Log(collision.gameObject.name);
 
 
 
-        // Dont destroy the bullet if it hits the player or gun
-        // if (collision.gameObject.CompareTag("Player") )
-        // {
-        //     return;
-        // }
-        Debug.Log("The player is going to be destroyed. ");
+        // // Dont destroy the bullet if it hits the player or gun
+        // // if (collision.gameObject.CompareTag("Player") )
+        // // {
+        // //     return;
+        // // }
+        // Debug.Log("The player is going to be destroyed. ");
         //gameManagerScript.DeathAnalytics(new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z));
 
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Bullet"))
+        {
+            //Destroy(collision.gameObject);
+            Destroy(gameObject);
+            //gameManagerScript.DeathAnalytics(new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z));
+        }
+       
 
         // Optional: Add more logic here if you want to exclude certain objects from causing destruction
         // For example, you might not want the bullet to be destroyed when hitting power-ups
