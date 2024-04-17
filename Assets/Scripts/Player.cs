@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
     public TMP_Text TimelineTrackerText;
+    public TMP_Text levelNameText;
     public TMP_Text GunPickedText;
     private Rigidbody2D rb;
     public Transform current;
@@ -97,6 +98,9 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        levelNameText.SetText(SceneManager.GetActiveScene().name);
+
 
 
     }
@@ -304,7 +308,7 @@ public class Player : MonoBehaviour
         tempLevelTimerData = levelTimerData;
         string sceneName = SceneManager.GetActiveScene().name;
         //Sending data to firebase for player loc death.
-        gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+        gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z), sceneName);
         gameManagerScript.TimeInEachLevel(levelTimerData, timeInTimeline1, timeInTimeline2, sceneName);
         gameManagerScript.PlayerInfoData(shootColorScript.bulletsInT1Count, shootColorScript.bulletsInT2Count, sceneName);
         gameManagerScript.TimeInFrontOfObstacle(inFrontOfObstacleTimer, obstacleNameArray, sceneName);

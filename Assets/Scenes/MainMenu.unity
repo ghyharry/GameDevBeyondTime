@@ -341,7 +341,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2016090764}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LevelOnClick
+        m_MethodName: Level1OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1143,7 +1143,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2016090764}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Level2OnClick
+        m_MethodName: BackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1152,7 +1152,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
 --- !u!114 &686340282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2104,7 +2104,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2016090764}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Level2OnClick
+        m_MethodName: Level4OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2237,7 +2237,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2016090764}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Level2OnClick
+        m_MethodName: Level3OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

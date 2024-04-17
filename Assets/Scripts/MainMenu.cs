@@ -22,8 +22,11 @@ public class MainMenu : MonoBehaviour
     {
         mainMenuCanvas.SetActive(false);
         levelsCanvas.SetActive(true);
-
-
+    }
+    public void BackButton()
+    {
+        mainMenuCanvas.SetActive(true);
+        levelsCanvas.SetActive(false);
     }
 
     public void ExitOnClick()
@@ -46,14 +49,21 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    public void LevelOnClick()
+    public void Level1OnClick()
     {
         SceneManager.LoadScene(4);
     }
     public void Level2OnClick()
     {
         SceneManager.LoadScene(5);
-
+    }
+    public void Level3OnClick()
+    {
+        SceneManager.LoadScene(6);
+    }
+    public void Level4OnClick()
+    {
+        SceneManager.LoadScene(7);
     }
 
 

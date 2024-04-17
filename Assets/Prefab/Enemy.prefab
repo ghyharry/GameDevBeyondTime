@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4215883563266175062}
   - component: {fileID: 407444486567313031}
   - component: {fileID: 1416127030834904789}
+  - component: {fileID: -1028080546751368739}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: 6ad4a7adc8c47f9468b98a3f5414ce27, type: 3}
-  player: {fileID: 0}
+  shootingEnemy: {fileID: 0}
   shootInterval: 2
   bulletSpeed: 5
 --- !u!61 &4215883563266175062
@@ -211,7 +212,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMax: 0
   damageWeak: 0
+  current: {fileID: 0}
+  past: {fileID: 0}
   restartUI: {fileID: 0}
+  isPast: 0
+  firstFlag: 1
 --- !u!114 &1416127030834904789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,4 +231,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMax: 0
   damageWeak: 0
+  current: {fileID: 0}
+  past: {fileID: 0}
   restartUI: {fileID: 0}
+  isPast: 0
+  firstFlag: 1
+--- !u!122 &-1028080546751368739
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6300006560248227554}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4281289124
+  m_Size: 1

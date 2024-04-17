@@ -12,18 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2cdc7bf467f2198488c2b19e97496930
   - enabled: 1
-    path: Assets/Scenes/TutorialSceneObstacles.unity
+    path: Assets/Scenes/Tutorial1.unity
     guid: d07810c6125cf8c408f072bccf5e0c97
   - enabled: 1
-    path: Assets/Scenes/TutorialSceneBounceBack.unity
+    path: Assets/Scenes/Tutorial2.unity
     guid: 07cf8dfcab4a42a49be3b5b1363dacab
   - enabled: 1
-    path: Assets/Scenes/TutorialSceneEnemy.unity
+    path: Assets/Scenes/Tutorial3.unity
     guid: 96b76116b7bd2cb4daf57d236e934d61
   - enabled: 1
-    path: Assets/Scenes/First Scene.unity
+    path: Assets/Scenes/Level1.unity
     guid: e75444fd3ffbf584a91a12e9ffcd3f20
   - enabled: 1
-    path: Assets/Scenes/FourthLevel.unity
+    path: Assets/Scenes/Level2.unity
     guid: 2d1e3ccd260a97b44bf8f87a8c754217
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 26701d6dca8eedd4da7d73a68201c1a5
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 706e521d9c790534da8f36f4fff8a8cb
   m_configObjects: {}

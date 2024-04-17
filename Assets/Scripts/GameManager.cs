@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using Proyecto26;
+using TMPro;
 
 [System.Serializable]
 public class PlayerDeathLocData
 {
     public float x;
     public float y;
+    public string levelName;
 }
 
 [System.Serializable]
@@ -96,11 +98,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DeathAnalytics(Vector3 playerPos)
+    public void DeathAnalytics(Vector3 playerPos, string sceneName)
     {
         PlayerDeathLocData pdata = new PlayerDeathLocData();
         pdata.x = playerPos.x;
         pdata.y = playerPos.y;
+        pdata.levelName = sceneName;
         string json = JsonUtility.ToJson(pdata);
         RestClient.Post("https://team-3g-default-rtdb.firebaseio.com/"+ deathLocationJsonFile, pdata);
     }
