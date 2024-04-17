@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
     {
         levelTimerData += Time.deltaTime;
         if (obstacleArray != null)
-            Debug.Log("The obstacle array is not null : " + obstacleArray.Length);
+            //Debug.Log("The obstacle array is not null : " + obstacleArray.Length);
         {
             for(int i = 0; i < obstacleArray.Length; i++)
             {
@@ -167,13 +167,14 @@ public class Player : MonoBehaviour
 
 
         TimeSwitch();
-        if(currentBoss.active==false)
+        if(currentBoss==null)
         {
             Destroy(redWall);
-        } else if(pastBoss.transform.parent==current)
-        {
-            Destroy(currentBoss);
-        }
+        } 
+        //else if(pastBoss.transform.parent==current)
+        //{
+        //    Destroy(currentBoss);
+        //}
     }
 
     void TimeSwitch()
@@ -200,7 +201,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone"||collision.collider.tag == "PastBoss" || collision.collider.tag == "CurrentBoss" || collision.collider.tag == "EnemyWall")
+        if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone" || collision.collider.tag == "CurrentBoss" || collision.collider.tag == "EnemyWall")
         {
             //Send death loc data to firebase db
             //gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
@@ -284,15 +285,7 @@ public class Player : MonoBehaviour
                 
             }*/
         }
-        else if(collision.collider.tag == "PastBoss")
-        {
-            Destroy(pastBoss);
-            Destroy(currentBoss);
-        }
-        else if(collision.collider.tag == "CurrentBoss")
-        {
-            Destroy(redWall);
-        }
+        
         else if(collision.collider.tag == "BulletPlayer")
         {
             Debug.Log("Hit by my bullet. ");
