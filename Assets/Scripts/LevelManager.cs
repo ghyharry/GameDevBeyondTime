@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+
+    bool isPaused = false;
+    public GameObject pauseCanvas;
     // Start is called before the first frame update
     void Start()
     {
+        pauseCanvas.SetActive(false);
         
     }
 
@@ -18,6 +22,7 @@ public class LevelManager : MonoBehaviour
     public void RestartBehavior()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
         //gameObject.SetActive(false);
     }
 
@@ -34,5 +39,21 @@ public class LevelManager : MonoBehaviour
 
         SceneManager.LoadScene(0);
         
+    }
+    public void PauseButtonOnClick()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
+        pauseCanvas.SetActive(isPaused);
+    }
+    public void ContinueButtonOnClick()
+    {
+        isPaused = false;
+        Time.timeScale = 1;
+        pauseCanvas.SetActive(isPaused);
+    }
+    public void MainMenuOnClick()
+    {
+        SceneManager.LoadScene(0);
     }
 }
