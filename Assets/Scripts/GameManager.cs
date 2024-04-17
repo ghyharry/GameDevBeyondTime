@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
     void TimeSwitch()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             isCurrentTimeLine = !isCurrentTimeLine;
             if (isCurrentTimeLine)

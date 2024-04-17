@@ -30,7 +30,7 @@ public class ShootColor : MonoBehaviour
     void Update()
     {
         // Check for spacebar to shoot
-        if (Input.GetButtonDown("Fire1")) // Fire1 is usually mapped to Ctrl and mouse left click
+        if (Input.GetKeyDown(KeyCode.M)) // Fire1 is usually mapped to Ctrl and mouse left click
         {
             if (gameManagerScript.isCurrentTimeLine)
             {
