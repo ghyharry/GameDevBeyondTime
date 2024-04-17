@@ -21,6 +21,7 @@ TagManager:
   - BulletPlayer
   - TheButton
   - PlayerObstacle
+  - EnemyWall
   layers:
   - Default
   - TransparentFX

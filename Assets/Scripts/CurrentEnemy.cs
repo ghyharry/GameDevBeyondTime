@@ -74,6 +74,7 @@ public class CurrentEnemy : MonoBehaviour
             }
         } else {
             //Dont move
+            MoveTowardsPlayer(); 
         }
 
         TimeSwitchEnemy();

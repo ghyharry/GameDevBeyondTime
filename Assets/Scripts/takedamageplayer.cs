@@ -25,6 +25,9 @@ public class takedamageplayer : MonoBehaviour
 
             hitCount++; // Increment hit count
 
+            // Set player color to white
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+
             // Check if hit count is equal to 3
             if (hitCount == damageWeak)
             {

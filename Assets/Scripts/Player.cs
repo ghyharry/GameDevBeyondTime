@@ -200,7 +200,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone"||collision.collider.tag == "PastBoss" || collision.collider.tag == "CurrentBoss")
+        if (collision.collider.tag == "Enemy" || collision.collider.tag == "DeathZone"||collision.collider.tag == "PastBoss" || collision.collider.tag == "CurrentBoss" || collision.collider.tag == "EnemyWall")
         {
             //Send death loc data to firebase db
             //gameManagerScript.DeathAnalytics(new Vector3(transform.position.x, transform.position.y, transform.position.z));
