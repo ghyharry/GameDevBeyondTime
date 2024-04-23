@@ -3760,7 +3760,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 211204108722451768, guid: 6ad4a7adc8c47f9468b98a3f5414ce27, type: 3}
   shootingEnemy: {fileID: 733123922}
   shootInterval: 3
-  bulletSpeed: 8
+  bulletSpeed: 10
   shootOffset: {x: 2, y: 0, z: 0}
 --- !u!4 &733123928 stripped
 Transform:
