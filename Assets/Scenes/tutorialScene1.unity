@@ -3092,7 +3092,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMax: 1
   damageWeak: 0
+  current: {fileID: 0}
+  past: {fileID: 0}
   restartUI: {fileID: 1383998040}
+  isPast: 0
+  firstFlag: 1
 --- !u!114 &1058072172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3106,6 +3110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 211204108722451768, guid: db5a63eaeb7c9a44aa54ff16be4bb559, type: 3}
+  bulletsInT1Count: 0
+  bulletsInT2Count: 0
+  gameManager: {fileID: 0}
+  gameManagerScript: {fileID: 0}
   bulletSpeed: 20
   shootOffset: {x: 2, y: 0, z: 0}
 --- !u!1 &1093826615
@@ -3794,6 +3802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc8f0fdb1ed44a4fa65e09b5bc1e076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 0}
 --- !u!114 &1270559315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4073,6 +4082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc8f0fdb1ed44a4fa65e09b5bc1e076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 0}
 --- !u!1 &1403924919
 GameObject:
   m_ObjectHideFlags: 0
@@ -4457,7 +4467,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1880471591}
   m_Father: {fileID: 522193237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -4788,6 +4799,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 721509876655255682, guid: 010c493f987b8b44bad26513d974f61e, type: 3}
   m_PrefabInstance: {fileID: 1898447289}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1880471590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880471591}
+  - component: {fileID: 1880471593}
+  - component: {fileID: 1880471592}
+  m_Layer: 5
+  m_Name: TimelineIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1880471591
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880471590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1557231112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -76.99997}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1880471592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880471590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a52ed2479c9d7004a915f337ca39ab81, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1880471593
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880471590}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1898447289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5425,10 +5511,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCurrentTimeLine: 1
+  numberOfEnemiesHitInT1: 0
+  numberOfEnemiesHitInT2: 0
   playerPos: {x: 0, y: 0, z: 0}
   current: {fileID: 1775562488}
   past: {fileID: 401899867}
   player: {fileID: 1058072165}
+  timelineIndicator: {fileID: 1880471590}
 --- !u!4 &2145415941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 721509876655255682, guid: 5def2fec0232d654888ff9c424417d63, type: 3}

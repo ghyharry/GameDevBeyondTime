@@ -57,7 +57,13 @@ public class ShootColorAtPlayerboss : MonoBehaviour
             bullet.GetComponent<Bullet>().savedDirection = shootDirection;
             bullet.GetComponent<Bullet>().speed = bulletSpeed;
             bullet.GetComponent<Bullet>().UpdateVelocity();
-            
+            SpriteRenderer bulletSpriteRenderer = bullet.GetComponent<SpriteRenderer>(); // Get the SpriteRenderer of the bullet
+            SpriteRenderer shooterSpriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer of the shooter
+
+            if (bulletSpriteRenderer != null && shooterSpriteRenderer != null)
+            {
+                bulletSpriteRenderer.color = shooterSpriteRenderer.color; // Set the bullet's color to match the shooter's color
+            }
         }
         else
         {

@@ -4,6 +4,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using Proyecto26;
 using TMPro;
+using UnityEngine.UI;
+
 
 [System.Serializable]
 public class PlayerDeathLocData
@@ -55,6 +57,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     //public CustomSceneManager sceneOne;
 
+    public GameObject timelineIndicator;
+
 
     private string deathLocationJsonFile = "DeathLocation.json";
     private string totalLevelJsonFile = "LevelTime.json";
@@ -66,6 +70,10 @@ public class GameManager : MonoBehaviour
         numberOfEnemiesHitInT1 = 0;
         numberOfEnemiesHitInT2 = 0;
         //sceneOne = sceneOne.GetComponent<CustomSceneManager>();
+
+        //Set timeline indicator Image to CurrentBall.png
+        timelineIndicator.GetComponent<Image>().sprite = Resources.Load<Sprite>("CurrentBall");
+        //DisableTimeIndicator();
 
     }
     // Update is called once per frame
@@ -83,12 +91,14 @@ public class GameManager : MonoBehaviour
             if (isCurrentTimeLine)
             {
                 Debug.Log("Game Manager: Current. ");
+                timelineIndicator.GetComponent<Image>().sprite = Resources.Load<Sprite>("CurrentBall");
                 current.SetActive(true);
                 past.SetActive(false);
             }
             else
             {
                 Debug.Log("Game Manager: Past. ");
+                timelineIndicator.GetComponent<Image>().sprite = Resources.Load<Sprite>("PastBall");
                 current.SetActive(false);
                 past.SetActive(true);
             }
@@ -96,6 +106,36 @@ public class GameManager : MonoBehaviour
             //isCurrentTimeLine = !isCurrentTimeLine;
             Debug.Log("the bool variable is : " + isCurrentTimeLine);
         }
+    }
+
+    public void EnableTimeIndicator()
+    {
+        //Get the name of the timeline indicator image
+        string timelineIndicatorImage = timelineIndicator.GetComponent<Image>().sprite.name;
+        //Log the name of the timeline indicator image
+        Debug.Log("Enabling : " + timelineIndicatorImage);
+
+        if (timelineIndicatorImage.Contains("Hint")){
+            return;
+        }
+        timelineIndicator.GetComponent<Image>().sprite = Resources.Load<Sprite>(timelineIndicatorImage + "Hint");
+
+
+    }
+
+    public void DisableTimeIndicator()
+    {
+        //Get halo component of the timeline indicator
+        //Disable the halo
+        //Get the name of the timeline indicator image
+        string timelineIndicatorImage = timelineIndicator.GetComponent<Image>().sprite.name;
+        //Log the name of the timeline indicator image
+        Debug.Log("Disabling: " + timelineIndicatorImage);
+        if (timelineIndicatorImage.Contains("Hint")){
+            timelineIndicator.GetComponent<Image>().sprite = Resources.Load<Sprite>(timelineIndicatorImage.Substring(0, timelineIndicatorImage.Length - 4));
+        }
+
+        //timelineIndicator.GetComponent<Image>().sprite = Resources.Load<Sprite>(timelineIndicatorImage.Substring(0, timelineIndicatorImage.Length - 4));
     }
 
     public void DeathAnalytics(Vector3 playerPos, string sceneName)
