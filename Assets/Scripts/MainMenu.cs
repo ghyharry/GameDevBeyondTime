@@ -38,32 +38,39 @@ public class MainMenu : MonoBehaviour
     public void TutorialObstacleOnClick()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
     public void TutorialBounceOnClick()
     {
         SceneManager.LoadScene(2);
+        Time.timeScale = 1;
     }
     public void TutorialEnemyOnClick()
     {
         SceneManager.LoadScene(3);
+        Time.timeScale = 1;
     }
 
     public void Level1OnClick()
     {
         SceneManager.LoadScene(4);
+        Time.timeScale = 1;
     }
     public void Level2OnClick()
     {
         SceneManager.LoadScene(5);
+        Time.timeScale = 1;
     }
     public void Level3OnClick()
     {
         SceneManager.LoadScene(6);
+        Time.timeScale = 1;
     }
     public void Level4OnClick()
     {
         SceneManager.LoadScene(7);
+        Time.timeScale = 1;
     }
 
 

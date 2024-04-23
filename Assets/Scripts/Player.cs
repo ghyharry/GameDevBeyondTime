@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     public GameObject currentBoss;
     public GameObject pastBoss;
     public GameObject redWall;
+    public GameObject gunPickUpPrefab;
+    public GameObject playerGun;
+    public GameObject firePrefab;
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
     public TMP_Text TimelineTrackerText;
@@ -58,6 +61,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerGun.SetActive(false);
+        firePrefab.SetActive(false);
         GunPickedText.enabled = false;
         //gameManager = new GameManager();
         gameManagerScript = gameManager.GetComponent<GameManager>();
@@ -168,6 +173,12 @@ public class Player : MonoBehaviour
         //else
             //Debug.Log("Cannot go back!");
         transform.Translate(Vector3.up * Time.deltaTime * verticalMovement * speed);
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)){
+            firePrefab.SetActive(true);
+        }else if(!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)))
+        {
+            firePrefab.SetActive(false);
+        }
 
 
         TimeSwitch();
@@ -273,6 +284,8 @@ public class Player : MonoBehaviour
             //Debug.Log("Shooting enabled");
             this.GetComponent<ShootColor>().enabled = true;
             Destroy(collision.collider.gameObject);
+
+            playerGun.SetActive(true);
 
 
             StartCoroutine(PickUpTimer());
