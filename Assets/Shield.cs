@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    public GameObject hatPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
+        hatPrefab.SetActive(false);
         
     }
 
@@ -27,9 +30,14 @@ public class Shield : MonoBehaviour
 
             // Set player color to pink
             collision.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+            hatPrefab.SetActive(true);
 
             // Destroy the shield
             Destroy(gameObject);
         }
+    }
+    public void OnDestroy()
+    {
+        //destroyed.
     }
 }
