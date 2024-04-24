@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class TakeDamageboss : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class TakeDamageboss : MonoBehaviour
     public Transform current;
     public Transform past;
     
-    
+    public TMP_Text bosstxt;
     public bool isPast = false;
     public int firstFlag = 1;
     public float flyTimer=0.0f;
@@ -29,6 +31,13 @@ public class TakeDamageboss : MonoBehaviour
         
         flyTimer -=Time.deltaTime;
         this.transform.position=marker.position;
+        if (damageMax-hitCount>0){
+            bosstxt.text=("Boss takes "+(damageMax-hitCount).ToString() +" bullets to die!");
+        }
+        else{
+            bosstxt.text=("Congratulation! You win!!!");
+        }
+        
         
         
     }
