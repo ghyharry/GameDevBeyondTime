@@ -716,8 +716,8 @@ Transform:
   m_GameObject: {fileID: 86807835}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 84.7, y: -2, z: 0.03684314}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
+  m_LocalPosition: {x: 85.15, y: -2.26, z: 0.03684314}
+  m_LocalScale: {x: 0.58, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1775562489}
@@ -766,18 +766,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0000024437904, y: 0.14552522}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.4, y: 3.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.4836426, y: 3.4901004}
   m_EdgeRadius: 0
 --- !u!50 &86807840
 Rigidbody2D:
@@ -882,7 +882,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 66143034, guid: db4367b3d41bdbb418fa7bdeea71e49e, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1672,7 +1672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &401899868
 Transform:
   m_ObjectHideFlags: 0
@@ -2042,18 +2042,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.059286833, y: 0.1085763}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.4, y: 3.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.4908595, y: 3.3886805}
   m_EdgeRadius: 0
 --- !u!50 &473103789
 Rigidbody2D:
@@ -2158,7 +2158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 66143034, guid: db4367b3d41bdbb418fa7bdeea71e49e, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2178,8 +2178,8 @@ Transform:
   m_GameObject: {fileID: 473103786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.1, y: -1.45, z: 0.03684314}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
+  m_LocalPosition: {x: 15.0476, y: -2.2186, z: 0.03684314}
+  m_LocalScale: {x: 0.58, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1775562489}
@@ -8626,28 +8626,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 401899868}
     m_Modifications:
     - target: {fileID: 1485224240734032744, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 66143034, guid: db4367b3d41bdbb418fa7bdeea71e49e, type: 3}
+    - target: {fileID: 1485224240734032744, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485224240734032744, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485224240734032744, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e20961d6ef2b1724e86667c72fb6724a, type: 2}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2415805938813678410, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: speed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4040319152451401630, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.25
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 4040319152451401630, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.25
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4040319152451401630, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28
+      value: -27.86
       objectReference: {fileID: 0}
     - target: {fileID: 4040319152451401630, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.07
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4040319152451401630, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8689,6 +8701,30 @@ PrefabInstance:
       propertyPath: restartUI
       value: 
       objectReference: {fileID: 1383998040}
+    - target: {fileID: 7503712798221520503, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_Size.x
+      value: 3.4307861
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503712798221520503, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_Size.y
+      value: 3.504428
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503712798221520503, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03683418
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503712798221520503, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.122766495
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503712798221520503, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503712798221520503, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7621499447698848386, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
       propertyPath: m_Name
       value: PastEnemy

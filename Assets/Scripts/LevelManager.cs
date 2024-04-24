@@ -23,6 +23,8 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
+        //GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().PlayMusic();
         //gameObject.SetActive(false);
     }
 
@@ -55,5 +57,7 @@ public class LevelManager : MonoBehaviour
     public void MainMenuOnClick()
     {
         SceneManager.LoadScene(0);
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
+        //GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().PlayMusic();
     }
 }
