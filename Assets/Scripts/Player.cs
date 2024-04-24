@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     public GameObject gunPickUpPrefab;
     public GameObject playerGun;
     public GameObject firePrefab;
+    public GameObject currentImage;
+    public GameObject pastImage;
     public Material currentFloorMaterial;
     public Material pastFloorMaterial;
     public TMP_Text TimelineTrackerText;
@@ -61,6 +63,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentImage.SetActive(true);
+        pastImage.SetActive(false);
         playerGun.SetActive(false);
         firePrefab.SetActive(false);
         GunPickedText.enabled = false;
@@ -200,7 +204,9 @@ public class Player : MonoBehaviour
         {
             //Debug.Log("Inside true. ");
             floor.GetComponent<SpriteRenderer>().material = currentFloorMaterial;
-            Camera.main.backgroundColor = Color.blue;
+            currentImage.SetActive(true);
+            pastImage.SetActive(false);
+            //Camera.main.backgroundColor = Color.blue;
             TimelineTrackerText.SetText("Current Timeline");
             timeInTimeline1 += Time.deltaTime;
         }
@@ -210,6 +216,8 @@ public class Player : MonoBehaviour
             Camera.main.backgroundColor = Color.grey;
             TimelineTrackerText.SetText("Past Timeline");
             timeInTimeline2 += Time.deltaTime;
+            currentImage.SetActive(false);
+            pastImage.SetActive(true);
         }
 
     }
