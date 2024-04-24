@@ -268,7 +268,12 @@ public class Player : MonoBehaviour
         else if (collision.collider.tag == "PlatformButton")
         {
             //platform movement functionality
-            platform.transform.position = new Vector3(platform.transform.position.x, platform.transform.position.y - 6.0f, 0);
+            //platform.transform.position = new Vector3(platform.transform.position.x, platform.transform.position.y - 6.0f, 0);
+            
+            //Get the platforms MoveBetweenPoints script
+            MoveBetweenPoints moveBetweenPoints = platform.GetComponent<MoveBetweenPoints>();
+            //Move the platform
+            moveBetweenPoints.CommandMoveToNextPoint();
             speed = 15.0f;
 
             //Debug.Log("Button collision. ");

@@ -49,6 +49,21 @@ public class CurrentEnemy : MonoBehaviour
     {
         if(unmoving)
         {
+            if (Vector3.Distance(player.transform.position, transform.position) < radius)
+            {
+                //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                //Draw a line from the enemy to the player with line renderer
+                LineRenderer lineRenderer = GetComponent<LineRenderer>();
+                lineRenderer.enabled = true;
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, player.transform.position);
+
+            } else {
+                //currentState = EnemyState.GOINGBACK;
+                //Clear the line renderer
+                LineRenderer lineRenderer = GetComponent<LineRenderer>();
+                lineRenderer.enabled = false;
+            }
             return;
         }
         //State machine
@@ -107,8 +122,17 @@ public class CurrentEnemy : MonoBehaviour
         if (Vector3.Distance(player.transform.position, transform.position) < radius)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            //Draw a line from the enemy to the player with line renderer
+            LineRenderer lineRenderer = GetComponent<LineRenderer>();
+            lineRenderer.enabled = true;
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, player.transform.position);
+
         } else {
             currentState = EnemyState.GOINGBACK;
+            //Clear the line renderer
+            LineRenderer lineRenderer = GetComponent<LineRenderer>();
+            lineRenderer.enabled = false;
         }
     }
 
