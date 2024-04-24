@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ShootColorAtPlayer : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class ShootColorAtPlayer : MonoBehaviour
     {
         shootTimer = shootInterval; // Initialize the shoot timer
         shootingEnemy = this.gameObject;
+        
         player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player's transform
 
     }
@@ -34,6 +37,7 @@ public class ShootColorAtPlayer : MonoBehaviour
     {
         if (bulletPrefab != null)
         {
+            Debug.Log(shootingEnemy.ToString());
             Vector3 offset = new Vector3(0, 2f, 0); // Offset to spawn the bullet slightly above the shooter
             GameObject bullet = Instantiate(bulletPrefab, transform.position + offset, Quaternion.identity); // Instantiate the bullet at the shooter's position + offset
             bullet.transform.SetParent(shootingEnemy.transform); //set the bullets as child of enemy.
