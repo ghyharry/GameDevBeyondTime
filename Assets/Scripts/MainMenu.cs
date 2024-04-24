@@ -72,6 +72,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(7);
         Time.timeScale = 1;
     }
+    public void Level5OnClick()
+    {
+        SceneManager.LoadScene(8);
+        Time.timeScale = 1;
+    }
 
 
 }
