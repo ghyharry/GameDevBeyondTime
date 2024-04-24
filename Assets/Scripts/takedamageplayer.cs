@@ -10,6 +10,8 @@ public class takedamageplayer : MonoBehaviour
     public int damageWeak; // Number of hits before object enters weak state
 
     public GameObject restartUI; // UI to display when player is destroyed
+    public GameObject hatPrefab;
+
 
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -26,7 +28,9 @@ public class takedamageplayer : MonoBehaviour
             hitCount++; // Increment hit count
 
             // Set player color to white
-            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            hatPrefab.SetActive(false);
+
 
             // Check if hit count is equal to 3
             if (hitCount == damageWeak)

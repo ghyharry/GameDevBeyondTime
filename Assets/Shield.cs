@@ -29,7 +29,7 @@ public class Shield : MonoBehaviour
             takedamageplayer.damageMax = 2;
 
             // Set player color to pink
-            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+            //collision.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
             hatPrefab.SetActive(true);
 
             // Destroy the shield

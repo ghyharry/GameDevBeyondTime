@@ -213,7 +213,7 @@ public class Player : MonoBehaviour
         else
         {
             floor.GetComponent<SpriteRenderer>().material = pastFloorMaterial;
-            Camera.main.backgroundColor = Color.grey;
+            //Camera.main.backgroundColor = Color.grey;
             TimelineTrackerText.SetText("Past Timeline");
             timeInTimeline2 += Time.deltaTime;
             currentImage.SetActive(false);
