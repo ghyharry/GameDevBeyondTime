@@ -3922,6 +3922,8 @@ PrefabInstance:
     - {fileID: 1747038649971732079, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
     - {fileID: 2033265730899629158, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
     - {fileID: 3836838832153174600, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+    - {fileID: 3020364920014750835, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+    - {fileID: 5575520980839080007, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4588,6 +4590,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907856290}
   m_CullTransparentMesh: 1
+--- !u!1 &912544341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6258294199098412958, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
+  m_PrefabInstance: {fileID: 2516339817272353270}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &927317037
 GameObject:
   m_ObjectHideFlags: 0
@@ -5959,25 +5966,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4724674688438365622, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
   m_PrefabInstance: {fileID: 2516339817272353270}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1058072171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058072165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5000583bf1b4d4381e2699eb66bc4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageMax: 1
-  damageWeak: 0
-  current: {fileID: 0}
-  past: {fileID: 0}
-  restartUI: {fileID: 1383998040}
-  isPast: 0
-  firstFlag: 1
 --- !u!114 &1058072172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6012,7 +6000,7 @@ MonoBehaviour:
   damageMax: 1
   damageWeak: 0
   restartUI: {fileID: 1383998040}
-  hatPrefab: {fileID: 0}
+  hatPrefab: {fileID: 912544341}
 --- !u!1 &1074850928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7621499447698848386, guid: 7f55364ac647ccf4189bcf48e6a7fb5e, type: 3}
@@ -9396,9 +9384,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4724674688438365622, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1058072171}
     - targetCorrespondingSourceObject: {fileID: 4724674688438365622, guid: 423ba84e7b9644a4cbb053c59dfee1da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1058072172}

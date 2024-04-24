@@ -34,9 +34,7 @@ public class TakeDamageboss : MonoBehaviour
         if (damageMax-hitCount>0){
             bosstxt.text=("Boss takes "+(damageMax-hitCount).ToString() +" bullets to die!");
         }
-        else{
-            bosstxt.text=("Congratulation! You win!!!");
-        }
+
         
         
         
@@ -78,8 +76,8 @@ public class TakeDamageboss : MonoBehaviour
             hitCount++; // Increment hit count
 
             if (hitCount >= damageMax)
-            {   
-                
+            {
+                bosstxt.text = ("Congratulation! You win!!!");
                 Destroy(gameObject); // Destroy the object
                 
                 
