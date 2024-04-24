@@ -198,12 +198,21 @@ public class Player : MonoBehaviour
 
     void TimeSwitch()
     {
+        Debug.Log("SAD: IM HERE");
         //Debug.Log("The player value in bool is " + gameManagerScript.isCurrentTimeLine);
+        //Log if current image is active
+        Debug.Log("BEFORE Current image is active: " + currentImage.activeSelf);
+        //Log if past image is active
+        Debug.Log("BEFORE Past image is active: " + pastImage.activeSelf);
 
         if (gameManagerScript.isCurrentTimeLine)
         {
             //Debug.Log("Inside true. ");
-            floor.GetComponent<SpriteRenderer>().material = currentFloorMaterial;
+            if(floor != null)
+            {
+                floor.GetComponent<SpriteRenderer>().material = currentFloorMaterial;
+            }
+            //floor.GetComponent<SpriteRenderer>().material = currentFloorMaterial;
             currentImage.SetActive(true);
             pastImage.SetActive(false);
             //Camera.main.backgroundColor = Color.blue;
@@ -212,13 +221,19 @@ public class Player : MonoBehaviour
         }
         else
         {
-            floor.GetComponent<SpriteRenderer>().material = pastFloorMaterial;
+            if(floor != null)
+            {
+                floor.GetComponent<SpriteRenderer>().material = pastFloorMaterial;
+            }
             //Camera.main.backgroundColor = Color.grey;
             TimelineTrackerText.SetText("Past Timeline");
             timeInTimeline2 += Time.deltaTime;
             currentImage.SetActive(false);
             pastImage.SetActive(true);
         }
+
+        //Log if current image is active
+        Debug.Log("SAD: IM END");
 
     }
 
